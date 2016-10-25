@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #container{
+            width:400px;
+            height:300px;
+            margin:100px auto;
+
+
+        }
+        #tab{
+            overflow: hidden;
+        }
+        #tab li{
+            width:120px;
+            height:30px;
+            background: #00ffff;
+            float:left;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 30px;
+            cursor:pointer;
+        }
+        #tab .selected{
+            background: #000;
+            color: white;
+        }
+        #content{
+            height:270px;
+            background:#00ffff;
+            border-top:1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="tab">
+        <li class="selected">html</li>
+        <li>css</li>
+        <li>javascript</li>
+    </ul>
+    <div id="content">abcdefg</div>
+</div>
+</body>
+</html>
