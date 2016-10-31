@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>拖拽</title>
+    <title>title</title>
     <style>
         *{
             margin:0;
@@ -12,37 +12,35 @@
             width:200px;
             height:200px;
             background: red;
-            cursor:pointer;
-            position: relative;
+            position: absolute;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-<h>aaaaaaaaaaaaaaa</h>
+<h3>aaaaaaaaaaaaaaaaaa</h3>
 <div id="drag"></div>
-
 <script>
     (function(){
         var oDrag=document.getElementById('drag');
-        oDrag.onmousedown = function (e) {
+        oDrag.onmousedown=function(e){
             e=e||window.event;
-           var iDisX= e.clientX-oDrag.offsetLeft;
+            var iDisX= e.clientX-oDrag.offsetLeft;
             var iDisY= e.clientY-oDrag.offsetTop;
-            document.onmousemove = function(e){
+            document.onmousemove=function(e){
                 e=e||window.event;
-                var left = e.clientX-iDisX;
-                var top = e.clientY-iDisY;
-                oDrag.style.left = left+"px";
-                oDrag.style.top = top+"px";
+                var left= e.clientX-iDisX;
+                var top= e.clientY-iDisY;
+                oDrag.style.left=left+"px";
+                oDrag.style.top=top+"px";
                 return false;
             };
-       oDrag.onmouseup=function(){
-                document.onmousemove=null;
-            }
         };
+        document.onmouseup=function(){
+            document.onmousemove=null;
+        };
+    })()
 
-
-    })();
 </script>
 </body>
 </html>
