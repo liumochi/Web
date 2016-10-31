@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #container{
+            width:300px;
+            height:500px;
+            background: #9fb7f7;
+            position: relative;
+            overflow: hidden;
+        }
+        #content{
+            width:280px;
+          position: absolute;
+            background: #0091ff;
+          top:0;
+            left:0;
+        }
+        #scroll-bar{
+           width:20px;
+            height:500px;
+
+            position: absolute;
+            right:0;
+            top:0;
+        }
+        #scroll-btn{
+            height:30px;
+            width:20px;
+            background: red;
+            position: absolute;
+            cursor:pointer;
+            top:0;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="content">
+         哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+        哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+        哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈很哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+        哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+        哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈1111111111
+    </div>
+    <div id="scroll-bar">
+        <div id="scroll-btn"></div>
+    </div>
+</div>
+<script>
+    (function(){
+        var oScrollBtn=document.getElementById('scroll-btn');
+        var oScrollBar=document.getElementById('scroll-bar');
+        var oContent=document.getElementById('content');
+        oScrollBtn.onmousedown=function(e) {
+            e = e || window.event;
+            var iDisY = e.clientY - oScrollBtn.offsetTop;
+            document.onmousemove = function (e) {
+                e = e || window.event;
+                var top = e.clientY - iDisY;
+                if (top < 0) {
+                    top = 0;
+                }
+                var btnMaxH = oScrollBar.offsetHeight - oScrollBtn.offsetHeight;
+                if (top > btnMaxH) {
+                    top = btnMaxH;
+                }
+                oScrollBtn.style.top = top + "px";
+
+                var fScaleY = top / btnMaxH;
+                oContent.style.top = -fScaleY * (oContent.offsetHeight - oScrollBar.offsetHeight) + "px";
+                return false;
+            };
+        };
+             document.onmouseup=function(){
+                 document.onmousemove=null;
+             };
+
+
+    })();
+</script>
+</body>
+</html>
