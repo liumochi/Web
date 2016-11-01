@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播1</title>
+    <style>
+        *{  margin:0;
+            padding:0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        #container{
+            width:680px;
+            height:344px;
+            position: relative;
+            margin:50px auto;
+            background: red;
+            overflow: hidden;
+        }
+
+        #arrow{
+            position: absolute;
+            left: 10px;
+            bottom:10px;
+        }
+        #arrow span{
+            width:20px;
+            height:20px;
+            background: #000000;
+            color: #cccccc;
+            cursor: pointer;
+            margin-right: 5px;
+
+            text-align: center;
+            line-height: 20px;
+            float: left;
+        }
+        #tab .selected{
+            background:#00ff00;
+        }
+        #tab{
+
+            position: absolute;
+            bottom: 10px;
+            right:10px;
+            z-index: 1;
+        }
+        #tab li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #cccccc;
+            cursor: pointer;
+            text-align: center;
+            line-height: 20px;
+            margin-right: 5px;
+        }
+
+        #content img{
+           float:left;
+        }
+        #content {
+            position: absolute;
+            left:0px;
+        }
+
+    </style>
+
+</head>
+<body>
+<div id="container">
+    <div id="content">
+        <img class="selected" src="img/1.jpg" />
+        <img src="img/2.jpg" />
+        <img src="img/3.jpg" />
+        <img src="img/4.jpg"/>
+    </div>
+    <ul id="tab">
+        <li class="selected">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="arrow">
+        <span id="prev">&lt;</span>
+        <span id="next">&gt;</span>
+    </div>
+</div>
+
+<script src="jslib.js"></script>
+<script>
+    window.onload = function(){
+        var oContainer = document.getElementById('container');
+        var aLi = oContainer.getElementsByTagName('li');
+        var aImg = oContainer.getElementsByTagName('img');
+        var oNext = document.getElementById('next');
+        var oPrev = document.getElementById('prev');
+        var oContent = document.getElementById('content');
+        var iNow = 0;  //记录当前显示的索引
+        var timer;
+        oContent.style.width = aImg[0].offsetWidth * aImg.length +"px" ;
+
+
+
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].index = i;
+            aLi[i].onmouseover = function(){
+                changeImg(this.index);
+                iNow = this.index;
+            }
+        }
+        function changeImg(index){
+            //console.log(this);
+            for(var i=0; i<aLi.length; i++){
+                aLi[i].className = '';
+                //aImg[i].className = '';
+            }
+            //aLi[this.index]
+            //console.log(index);
+            aLi[index].className = 'selected';
+            animate(oContent,{left:-aImg[0].offsetWidth * index})
+            //oContent.style.left = -aImg[0].offsetWidth * index +'px';
+
+
+        }
+
+        oNext.onclick = function(){
+            iNow++;
+            iNow = iNow%aLi.length;
+            changeImg(iNow);
+        }
+        oPrev.onclick = function(){
+            iNow--;
+            if(iNow == -1){
+                iNow = aLi.length -1;
+            }
+            changeImg(iNow);
+        }
+
+        timer = setInterval(function(){
+            oNext.onclick();
+        },1000);
+        oContainer.onmouseover = function(){
+            clearInterval(timer);
+        }
+        oContainer.onmouseout = function(){
+            timer = setInterval(function(){
+                oNext.onclick();
+            },1000);
+        }
+    }
+
+</script>
+</body>
+
+</html>
