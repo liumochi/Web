@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+          margin:0;
+          padding:0;
+      }
+        #small{
+            width:300px;
+            height:300px;
+        }
+        #small img{
+            width:300px;
+            height:300px;
+        }
+        #slider{
+            width:140px;
+            height:140px;
+            position: absolute;
+            background:rgba(135,135,135,0.4);
+            top:0;
+            display:none;
+        }
+        #big{
+            width:300px;
+            height:300px;
+            position: absolute;
+            top:0;
+            overflow: hidden;
+            left:300px;
+            border:2px solid red;
+            display:none;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="small">
+        <img src="img/5.jpg"/>
+        <div id="slider"></div>
+    </div>
+    <div id="big">
+        <img src="img/5.jpg"/>
+    </div>
+    <script>
+        var small = document.getElementById("small");
+        var slider = document.getElementById("slider");
+        var big = document.getElementById("big");
+        var bigImg = document.getElementsByTagName("img")[1];
+
+        small.onmousemove = function(e) {
+           e = e||window.event
+            var x = e.clientX - small.offsetLeft - slider.offsetWidth/2;
+            var y = e.clientY - small.offsetTop - slider.offsetHeight/2;
+           var maxX = small.clientWidth - slider.clientWidth;
+
+            var maxY = small.clientHeight - slider.clientHeight;
+            if(x<0){
+
+                x=0;
+            }
+
+            if(x>maxX){
+                x = maxX;
+            }
+
+            if(y<0){
+                y=0;
+            }
+
+            if(y>maxY){
+                y = maxY;
+            }
+            slider.style.top = y + "px";
+            slider.style.left = x + "px";
+
+            big.scrollLeft = x/maxX * (bigImg.clientWidth - big.clientWidth) ;
+            big.scrollTop = y/maxY * (bigImg.clientHeight -big.clientHeight) ;
+        }
+
+        small.onmouseenter = function(){
+
+            slider.style.display = "block";
+
+            big.style.display = "block";
+        }
+
+        small.onmouseleave = function(){
+            slider.style.display = "none";
+            big.style.display="none";
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>
