@@ -83,20 +83,29 @@
 <script src="jslib.js"></script>
 <script>
     window.onload = function(){
+           var oContainer = document.getElementById('container');
+           var aLi = oContainer.getElementsByTagName('li');
+           var aImg = oContainer.getElementsByTagName('img');
 
 
+            var iZIndex = 4;
+        for(var i=0;i<aLi.length;i++){
+             aImg[i].style.zIndex = aLi.length - i;
+             aLi[i].index = i;
+            aLi[i].onmouseover = function() {
+                for (var i=0;i<aLi.length;i++) {
+                    aLi[i].className = '';
+                }
 
 
-
-
-
-
-
-
-
-
-
-
+                this.className = 'selected';
+                var oImg = aImg[this.index];
+                oImg.style.opacity = 0;
+                oImg.style.filter = 'alpha(opacity=0)';
+                oImg.style.zIndex = ++iZIndex;
+                animate(oImg, {opacity: 100});
+            }
+        }
     }
 </script>
 </body>
