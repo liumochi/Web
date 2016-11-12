@@ -12,62 +12,90 @@
             list-style: none;
         }
         #container{
-            width:300px;
-            height:250px;
+            width:400px;
+            height:200px;
             border:2px solid #000000;
             margin:100px auto;
-
-        }
-        #menu{
-            width:1000%;
+            position: relative;
             overflow: hidden;
         }
-        #menu li{
-            width:100px;
-            height:200px;
+        #content{
+            width:1040px;
+            height:120px;
+          position: absolute;
+        }
+        #content li{
+            width:120px;
+            height:120px;
             background: #000000;
             color: white;
             text-align: center;
-            line-height: 200px;
+            line-height: 120px;
             margin-right: 5px;
             float: left;
             font-size:200%;
 
         }
-
-
-
-         #div1{
-             width:200px;
-             height:50px;
-             margin: 10px auto;
-
-         }
-        #div1 button{
-            width:100px;
-            height:30px;
-            display: block;
-            float:left;
+        #arrows{
+            position: absolute;
+            left:50%;
+            margin-left: -90px;
+            bottom:10%;
         }
+       #arrows span{
+           width:80px;
+           height:30px;
+           background: #ccc;
+           float:left;
+           margin-right: 10px;
+           text-align: center;
+           line-height: 30px;
+
+       }
+
+
 
     </style>
 </head>
 <body>
 <div id="container">
-    <ul id="menu">
+    <ul id="content">
         <li>1</li>
         <li>2</li>
         <li>3</li>
         <li>4</li>
+
     </ul>
 
-        <div id="div1">
-
-               <button>向左</button>
-               <button>向右</button>
-
+        <div id="arrows">
+               <span id="left">&lt;&lt;向左</span>
+               <span id="right">向右&gt;&gt;</span>
         </div>
 </div>
+<script>
+                  var oContent = document.getElementById('content');
+                  var oLeft = document.getElementById('left');
+                  var oRight = document.getElementById('right');
 
+                  var speed = -2;
+                  oContent.innerHTML=oContent.innerHTML+oContent.innerHTML;
+                  var aLi =oContent.getElementsByTagName('li');
+                  oContent.style.width = aLi.length * (aLi[0].offsetWidth+5) + 'px';
+                 setInterval(function(){
+                     oContent.style.left = oContent.offsetLeft + speed +'px';
+                     if(oContent.offsetLeft <= -oContent.offsetWidth/2){
+                         oContent.style.left = 0;
+                     }else if(oContent.offsetLeft >=0 ){
+                         oContent.style.left = -oContent.offsetWidth/2+'px';
+                     }
+                 },30);
+                 oLeft.onmouseover = function(){
+                     speed = -2;
+                 };
+                  oRight.onmouseover = function(){
+                      speed = 2;
+                  }
+
+</script>
 </body>
 </html>
