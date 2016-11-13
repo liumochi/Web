@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #menu .main-menu{
+            width:100px;
+
+            background: #000000;
+
+
+        }
+        #menu .main-menu h3{
+            width:100px;
+            height:30px;
+            color:#fff;
+            text-align: center;
+            line-height: 30px;
+        }
+        #menu .sub-menu{
+            background: #999999;
+            display: none;
+        }
+        #menu .sub-menu li{
+            border-bottom: 1px solid #ffffff;
+        }
+        #menu .sub-menu a{
+            width: 100px;
+            height: 30px;
+            display: block;
+            line-height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li class="main-menu">
+        <h3>link1</h3>
+        <ul class="sub-menu">
+            <li><a href="">sublink1</a></li>
+            <li><a href="">sublink2</a></li>
+            <li><a href="">sublink3</a></li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <h3>link2</h3>
+        <ul class="sub-menu">
+            <li><a href="">sublink1</a></li>
+            <li><a href="">sublink2</a></li>
+            <li><a href="">sublink3</a></li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <h3>link3</h3>
+        <ul class="sub-menu">
+            <li><a href="">sublink1</a></li>
+            <li><a href="">sublink2</a></li>
+            <li><a href="">sublink3</a></li>
+        </ul>
+    </li>
+</ul>
+<script>
+   var oUl = document.getElementById('menu');
+    var aH3 = oUl.getElementsByTagName('h3');
+    var aSubMenu = oUl.getElementsByTagName('ul');
+    for(var i=0;i<aH3.length;i++){
+        aH3[i].index = i;
+        aH3[i].bShow = false;
+        aH3[i].onclick = function(){
+            var oSubMenu = aSubMenu[this.index];
+            if(this.bShow){
+                oSubMenu.style.display = 'none';
+
+            }else{
+                oSubMenu.style.display = 'block';
+            }
+            this.bShow = !this.bShow;
+        };
+        aH3[i].onselectstart = function(){
+            return false;
+        }
+    }
+   function next(elem){
+       do{
+           elem = elem.nextSibling;
+       }while(elem && elem.nodeType != 1);
+       return elem;
+   }
+//解决兼容性问题  直到找到元素为;
+
+</script>
+</body>
+</html>

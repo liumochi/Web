@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width:200px;
+            height:200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+
+</div>
+<script>
+    var oDiv = document.getElementById('div1');
+    var oP = document.createElement('p');//创造一个节点；
+    oP.innerHTML = 'ppppppppppppp';
+    oDiv.appendChild(oP);//把oP内容放到oDiv里 使用appendChild；
+</script>
+</body>
+</html>
