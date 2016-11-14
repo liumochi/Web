@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        #container{
+            width:400px;
+            height:200px;
+            border:1px solid #000;
+            margin:100px auto;
+            position: relative;
+            overflow:hidden;
+        }
+        #content li{
+            width:120px;
+            height:120px;
+            background: #000000;
+            font-size: 200%;
+            color: white;
+            text-align: center;
+            line-height: 120px;
+            float:left;
+            margin-right: 10px;
+        }
+        #content{
+            width:520px;
+            height:120px;
+            position: absolute;
+        }
+        #arrows{
+            position: absolute;
+            left:50%;
+            bottom:20px;
+            margin-left:-80px;
+        }
+        #arrows span{
+            width:60px;
+            height:40px;
+            background: #999999;
+            text-align: center;
+            line-height: 50px;
+            margin-right:20px;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="content">
+        <li>我</li>
+        <li>是</li>
+        <li>王</li>
+        <li>者</li>
+    </ul>
+    <div id="arrows">
+        <span id="left">&lt;向左</span>
+        <span id="right">向右&gt;</span>
+    </div>
+</div>
+<script>
+            var oContent = document.getElementById('content');
+            var oLeft = document.getElementById('left');
+            var oRight = document.getElementById('right');
+            var speed = -2;
+            oContent.innerHTML = oContent.innerHTML+oContent.innerHTML;
+            var aLi = oContent.getElementsByTagName('li');
+            oContent.style.width = aLi.length * (aLi[0].offsetWidth +10) +'px';
+            setInterval(function(){
+                oContent.style.left = oContent.offsetLeft +speed +'px';
+                 if(oContent.offsetLeft<= -oContent.offsetWidth/2){
+                     oContent.style.left = 0;
+                 }else if(oContent.offsetLeft >= 0){
+                    oContent.style.left = -oContent.offsetWidth/2 +'px';
+                 }
+            },30);
+              oLeft.onmousemove = function(){
+                  speed = -2;
+              }
+                oRight.onmousemove = function(){
+                    speed = 2;
+                }
+
+
+
+
+</script>
+</body>
+</html>
