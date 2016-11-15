@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+     *{
+         margin:0;
+         padding:0;
+     }
+        #container{
+            width:300px;
+            height:200px;
+            background: #9fb7f7;
+            position: relative;
+            margin:100px auto;
+        }
+        #content{
+            position: absolute;
+            left:60px;
+            top:50px;
+        }
+        #num1{
+            width:150px;
+            height:20px;
+        }
+        #num2{
+            width:150px;
+            height:20px;
+        }
+        #click{
+            position: absolute;
+            top:150px;
+            left:20px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+
+     <div id="content">
+         <h3>内存分配</h3>
+         <input type="text" id="num1"/>
+         <input type="text" id="num2"/>
+     </div>
+    <div id="click">
+        <button onclick="FF()">首次适应</button>
+        <button onclick="NF()">循环首次</button>
+        <button onclick="BF()">最佳适应</button>
+        <button onclick="WF()">最坏适应</button>
+    </div>
+</div>
+
+<script>
+    var aNum1 = [];
+    var aNum2 = [];
+    var oNum1 = document.getElementById('num1');
+    var oNum2 = document.getElementById('num2');
+    function FF() {
+        aNum1 = oNum1.value.split(',');
+        aNum2 = oNum2.value.split(',');
+        console.log(aNum2);
+        for(var i=0;i<aNum2.length;i++){
+            for(var j=0;j<aNum1.length;j++){
+                console.log(aNum2[i]);
+                if(parseInt(aNum2[i])<parseInt(aNum1[j])){
+                    aNum1[j] = aNum1[j]-aNum2[i];
+                    console.log(aNum1[j]);
+                    break;
+                }
+            }
+            if(j == aNum1.length){
+                console.log(j);
+                alert("内存分配失败");
+                break;
+            }
+
+        }
+        if(i == aNum2.length){
+            alert("分配完成");
+        }
+    }
+
+</script>
+</body>
+</html>
