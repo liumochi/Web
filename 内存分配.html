@@ -45,20 +45,25 @@
          <input type="text" id="num2"/>
      </div>
     <div id="click">
-        <button id="FF">首次适应</button>
-        <button id="NF">循环首次</button>
-        <button id="BF">最佳适应</button>
-        <button id="WF">最坏适应</button>
+        <button id="firstFit">首次适应</button>
+        <button id="nextFit">循环首次</button>
+        <button id="bestFit">最佳适应</button>
+        <button id="worstFit">最坏适应</button>
     </div>
 </div>
 
 <script>
+
+    var oNum1 = document.getElementById('num1');
+    var oNum2 = document.getElementById('num2');
+    var oFirstFit = document.getElementById('firstFit');
+    var oNextFit = document.getElementById('nextFit');
+    var oBestFit = document.getElementById('bestFit');
+    var oWorstFit = document.getElementById('worstFit');
     var aNum1 = [];
     var aNum2 = [];
     var arrs=[];
-    var oNum1 = document.getElementById('num1');
-    var oNum2 = document.getElementById('num2');
-    FF.onclick = function() {
+    oFirstFit.onclick = function() {
         aNum1 = oNum1.value.split(' ');
         aNum2 = oNum2.value.split(' ');
 
@@ -68,7 +73,7 @@
             for(var j=0;j<aNum1.length;j++){
 
                 console.log(aNum2[i]);
-                if(parseInt(aNum2[i])<parseInt(aNum1[j])){
+                if(parseInt(aNum2[i])<=parseInt(aNum1[j])){
                     aNum1[j] = aNum1[j]-aNum2[i];
                     console.log(aNum1[j]);
                     break;
@@ -86,46 +91,52 @@
                         alert("内存分配成功");
                     }
                 }
-    BF.onclick = function() {
-        var index = 0;
+    oBestFit.onclick = function() {
+
         aNum1 = oNum1.value.split(' ');
         aNum2 = oNum2.value.split(' ');
-        console.log(aNum2);
-        //循环你输入的每一个得值之后和你num2
-        for(var i=0;i<aNum1.length;i++){
-          var elem={};
-           elem.num =aNum1[i]-aNum2;//差值
-           elem.index=i;
-           elem.toString=function(){
-               return this.num;
-           }
-            arrs.push(elem);
-            arrs.sort(function(a,b){
-                return a-b;
-            });
-            }
-        alert(aNum1[arrs[0].index])//最适应的
-//            if(j == aNum1.length){
-//                for(j=0;j<aNum1.length;j++){
-//                    if(parseInt(aNum2[i])<parseInt(aNum1[j])){
-//                        aNum1[j] = aNum1[j] - aNum2[i];
-//
-//                        index = j;
-//                        break;
-//                    }
-//                }
-//                if(j == aNum1.length){
-//                    console.log(j);
-//                    alert("内存分配失败");
-//                    break;
-//                }
-//            }
-//        }
-//        if(i == aNum2.length){
-//            alert("分配完成");
-//        }
-    }
 
+        console.log(aNum2);
+        //循环你输入的每一个得值之后和num2
+        for (var i = 0; i < aNum1.length; i++) {
+            if (parseInt(aNum1[i]) >= parseInt(aNum2[0])) {
+                var elem = {};
+                elem.num = parseInt(aNum1[i]) - parseInt(aNum2[0]);//差值
+                elem.index = i;
+                elem.toString = function () {
+                    return this.num;
+                };
+                arrs.push(elem);
+
+            }
+            arrs.sort(function (a, b) {
+                return a - b;
+            });
+        }
+        console.log(arrs.join(','));
+        alert(aNum1[arrs[0].index])//最适应的
+    }
+         oWorstFit.onclick = function() {
+            aNum1 = oNum1.value.split(' ');
+            aNum2 = oNum2.value.split(' ');
+            console.log(aNum2);
+            //循环你输入的每一个得值之后和num2
+            for (var i = 0; i < aNum1.length; i++) {
+                if (parseInt(aNum1[i]) >= parseInt(aNum2[0])) {
+                    var elem = {};
+                    elem.num = parseInt(aNum1[i]) - parseInt(aNum2[0]);//差值
+                    elem.index = i;
+                    elem.toString = function () {
+                        return this.num;
+                    };
+                    arrs.push(elem);
+                }
+                arrs.sort(function (a, b) {
+                    return b - a;
+                });
+            }
+            alert(aNum1[arrs[0].index])//最适应的
+        }
 </script>
 </body>
 </html>
