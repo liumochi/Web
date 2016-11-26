@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #container{
+            position: relative;
+            width: 400px;
+            height: 430px;
+            margin:50px auto;
+            overflow: hidden;
+            background: #cccccc;
+        }
+
+        #big{
+            width: 2400px;
+            height: 320px;
+            position:absolute;
+            top:0;
+        }
+        #big img{
+            width: 400px;
+            height: 320px;
+            float:left;
+        }
+        #small{
+            width: 780px;
+            height: 130px;
+            position: absolute;
+            left:10px;
+            bottom:-140px;
+        }
+        #small img{
+            width: 120px;
+            height: 94px;
+            float:left;
+            margin-right:10px;
+        }
+        #arrow{
+            position: absolute;
+            left: 10px;
+            bottom:10px;
+        }
+        #arrow span{
+            width:20px;
+            height:20px;
+            background: #000000;
+            color: #cccccc;
+            cursor: pointer;
+            margin-right: 5px;
+
+            text-align: center;
+            line-height: 20px;
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="big">
+        <img class="selected"  src="img/1.jpg"/>
+        <img src="img/2.jpg"/>
+        <img src="img/3.jpg"/>
+        <img src="img/4.jpg"/>
+        <img src="img/5.jpg"/>
+        <img src="img/6.jpg"/>
+        <div id="arrow">
+            <span id="prev">&lt;</span>
+            <span id="next">&gt;</span>
+        </div>
+        <div id="small">
+            <img src="img/1.jpg"/>
+            <img src="img/2.jpg"/>
+            <img src="img/3.jpg"/>
+            <img src="img/4.jpg"/>
+            <img src="img/5.jpg"/>
+            <img src="img/6.jpg"/>
+        </div>
+    </div>
+
+</div>
+<script src="jslib.js"></script>
+<script>
+    window.onload = function(){
+
+        var oBig = document.getElementById('big');
+        var aImg = oBig.getElementsByTagName('img');
+        var oNext = document.getElementById('next');
+        var oPrev = document.getElementById('prev');
+        var iNow = 0;
+        var timer;
+        var newImg = aImg[0].cloneNode();
+        oBig.appendChild(newImg);
+        oBig.style.width = aImg[0].offsetWidth * aImg.length +"px" ;
+
+
+
+        for(var i=0; i<aImg.length; i++){
+            aImg[i].index = i;
+            aImg[i].onmouseover = function(){
+                changeImg(this.index);
+                iNow = this.index;
+            }
+        }
+        function changeImg(index){
+
+            for(var i=0; i<aImg.length; i++){
+                aImg[i].className = ''
+            }
+
+            aImg[index == aImg.length -1 ? 0:index].className = 'selected';
+            animate(oBig,{left:-aImg[0].offsetWidth * index})
+
+
+
+        }
+        oNext.onclick = function(){
+            iNow++;
+            if(iNow == aImg.length){
+                oBig.style.left = 0;
+                iNow = 1;
+            }
+            changeImg(iNow);
+        }
+        oPrev.onclick = function(){
+            iNow--;
+            if(iNow == -1){
+                oBig.style.left = -(aImg.length-1) * aImg[0].offsetWidth +"px";
+                iNow = aImg.length -2;
+            }
+            changeImg(iNow);
+        }
+
+        timer = setInterval(function(){
+            oNext.onclick();
+        },1000);
+        oBig.onmouseover = function(){
+            clearInterval(timer);
+        }
+        oBig.onmouseout = function(){
+            timer = setInterval(function(){
+                oNext.onclick();
+            },1000);
+        }
+    }
+</script>
+</body>
+</html>
