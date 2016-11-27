@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin:0;
+          padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+        body{
+            background: #666;
+        }
+        #container{
+            width: 400px;
+            height: 434px;
+            margin:50px auto;
+        }
+        #big-pic{
+            width: 400px;
+            height: 320px;
+            position: relative;
+        }
+        #big-img li{
+            width: 400px;
+            height: 320px;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        #left,#right{
+            width: 200px;
+            height: 320px;
+
+            position: absolute;
+            z-index: 99999;
+            opacity: 0;
+        }
+        #left{
+            left:0;
+            top:0;
+        }
+        #right{
+            right:0;
+            top:0
+        }
+        #left-btn,#right-btn{
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top:130px;
+        }
+        #left-btn{
+            left:10px;
+            background: url(img/btn.gif);
+        }
+        #right-btn{
+            right:10px;
+            background: url(img/btn.gif) 0 bottom;
+        }
+        #text{
+            width: 400px;
+            height: 30px;
+            position: absolute;
+            background: #000;
+            color:#ffffff;
+            opacity:0.5;
+            bottom:0;
+            line-height:30px;
+            z-index:99998;
+        }
+        #text-left{
+            margin-left:10px;
+            float:left;
+        }
+        #text-right{
+            margin-right:10px;
+            float:right;
+        }
+        #small-pic{
+            width: 400px;
+            height: 114px;
+            background: #999;
+            overflow: hidden;
+        }
+        #small-img{
+            width: 780px;
+        }
+        #small-img li img{
+            width: 120px;
+            height: 94px;
+        }
+        #small-img li{
+            width: 120px;
+            height: 94px;
+            float:left;
+            opacity: 0.6;
+            margin:10px 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+        <div id="container">
+        <div id="big-pic">
+            <ul id="big-img">
+                <li style="z-index:1"><img src="img/1.jpg" alt=""/></li>
+                <li><img src="img/2.jpg" alt=""/></li>
+                <li><img src="img/3.jpg" alt=""/></li>
+                <li><img src="img/4.jpg" alt=""/></li>
+                <li><img src="img/5.jpg" alt=""/></li>
+                <li><img src="img/6.jpg" alt=""/></li>
+            </ul>
+            <div id="left">
+                <span id="left-btn"></span>
+            </div>
+            <div id="right">
+                <span id="right-btn"></span>
+            </div>
+            <div id="text">
+                <span id="text-left">666666666</span>
+                <div id="text-right">
+                    <span id="num">1</span>/<span>6</span>
+                </div>
+            </div>
+        </div>
+          <div id="small-pic">
+            <ul id="small-img">
+                <li style="opacity:1"><img src="img/1.jpg" alt=""/></li>
+                <li><img src="img/2.jpg" alt=""/></li>
+                <li><img src="img/3.jpg" alt=""/></li>
+                <li><img src="img/4.jpg" alt=""/></li>
+                <li><img src="img/5.jpg" alt=""/></li>
+                <li><img src="img/6.jpg" alt=""/></li>
+            </ul>
+          </div>
+        </div>
+</body>
+</html>
