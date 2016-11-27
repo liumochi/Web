@@ -19,21 +19,23 @@
             margin:50px auto;
         }
         #big-pic{
+
             width: 400px;
             height: 320px;
             position: relative;
         }
         #big-img li{
+            z-index: 1;
             width: 400px;
             height: 320px;
             position: absolute;
             top:0;
             left:0;
+            overflow: hidden;
         }
         #left,#right{
             width: 200px;
             height: 320px;
-
             position: absolute;
             z-index: 99999;
             opacity: 0;
@@ -84,9 +86,12 @@
             height: 114px;
             background: #999;
             overflow: hidden;
+            position: relative;
         }
         #small-img{
             width: 780px;
+            position: absolute;
+            left:0;
         }
         #small-img li img{
             width: 120px;
@@ -105,12 +110,12 @@
         <div id="container">
         <div id="big-pic">
             <ul id="big-img">
-                <li style="z-index:1"><img src="img/1.jpg" alt=""/></li>
-                <li><img src="img/2.jpg" alt=""/></li>
-                <li><img src="img/3.jpg" alt=""/></li>
-                <li><img src="img/4.jpg" alt=""/></li>
-                <li><img src="img/5.jpg" alt=""/></li>
-                <li><img src="img/6.jpg" alt=""/></li>
+                <li style="z-index:3"><img src="img/1.jpg" alt="" title="11111111"/></li>
+                <li><img src="img/2.jpg" alt="" title="22222222"/></li>
+                <li><img src="img/3.jpg" alt="" title="33333333"/></li>
+                <li><img src="img/4.jpg" alt="" title="44444444"/></li>
+                <li><img src="img/5.jpg" alt="" title="55555555"/></li>
+                <li><img src="img/6.jpg" alt="" title="66666666"/></li>
             </ul>
             <div id="left">
                 <span id="left-btn"></span>
@@ -119,7 +124,7 @@
                 <span id="right-btn"></span>
             </div>
             <div id="text">
-                <span id="text-left">666666666</span>
+                <span id="text-left">11111111</span>
                 <div id="text-right">
                     <span id="num">1</span>/<span>6</span>
                 </div>
@@ -136,5 +141,94 @@
             </ul>
           </div>
         </div>
+        <script src="jslib.js"></script>
+        <script>
+            var oContainer = document.getElementById('container');
+            var oLeft = document.getElementById('left');
+            var oRight = document.getElementById('right');
+            var oLeftBtn = document.getElementById('left-btn');
+            var oRightBtn = document.getElementById('right-btn');
+            var oBigImg = document.getElementById('big-img');
+            var aBigImg = oBigImg.getElementsByTagName('li');
+            var oSmallImg = document.getElementById('small-img');
+            var aSmallImg = oSmallImg.getElementsByTagName('li');
+            var zIndex = 1;
+            var iNow = 0;
+            var oTextLeft = document.getElementById('text-left');
+            var oNum = document.getElementById('num');
+            oLeft.onmouseover = oRight.onmouseover =function () {
+                animate(this,{opacity:100})
+            }
+            oLeft.onmouseout = oRight.onmouseout = function(){
+                animate(this,{opacity:0})
+            }
+            oLeftBtn.onclick = oRightBtn.onclick = function () {
+                if(this == oLeftBtn){
+                    iNow--;
+                    if(iNow == -1){
+                        iNow = aBigImg.length - 1;
+                    }
+                }else{
+                    iNow++;
+                    if(iNow ==aBigImg.length){
+                        iNow = 0;
+                    }
+                }
+
+                changeImg(iNow);
+            }
+         function changeImg(idx){
+             aBigImg[idx].style.zIndex = zIndex++;
+             aBigImg[idx].style.height = 0;
+
+             oNum.innerHTML = idx + 1;
+             oTextLeft.innerHTML = aBigImg[idx].getElementsByTagName('img')[0].title;
+             iNow = idx;
+             for(var i=0;i<aSmallImg.length;i++){
+                 aSmallImg[i].style.opacity = 0.6;
+             }
+             aSmallImg[idx].style.opacity = 1;
+             if(idx == 0){
+                 animate(oSmallImg,{left:0})
+             }else if(idx ==aSmallImg.length-1){
+                 animate(oSmallImg,{left:-(idx-2) * (aSmallImg[0].offsetWidth+10)})
+             }else{
+                 animate(oSmallImg,{left:-(idx-1) * (aSmallImg[0].offsetWidth+10)})
+             }
+
+                animate(aBigImg[idx],{height:320});
+         }
+            for(var i=0;i<aSmallImg.length;i++){
+                aSmallImg[i].index = i;
+                aSmallImg[i].onmouseover = function () {
+                      this.style.opacity = 1;
+                }
+                aSmallImg[i].onmouseout = function () {
+                    if(this.index != iNow){
+                        this.style.opacity = 0.6;
+                    }
+                 }
+                aSmallImg[i].onclick = function(){
+                    changeImg(this.index);
+                    }
+                }
+                    var timer = setInterval(function () {
+                        oRightBtn.onclick();
+                    },1000)
+            oContainer.onmouseover = function(){
+                clearInterval(timer);
+            }
+            oContainer.onmouseout = function () {
+                timer = setInterval(function () {
+                    oRightBtn.onclick();
+                },1000)
+
+            }
+
+
+
+
+
+        </script>
 </body>
 </html>

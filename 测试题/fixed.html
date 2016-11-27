@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            height: 2000px;
+        }
+        #div1{
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            position: fixed;
+            bottom:10px;
+            right:10px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+hahahhahah
+<div id="div1">go</div>
+<script>
+    var oGo = document.getElementById('div1');
+    oGo.onclick = function(){
+        var iTop = document.body.scrollTop || document.documentElement.scrollTop;
+        var timer = setInterval(function(){
+            window.scrollTo(0,iTop *= 0.8);
+            if(iTop<=1){
+                window.scrollTo(0,0);
+                clearInterval(timer);
+            }
+        },50);
+
+
+    }
+    window.onscroll = function(){
+
+    }
+
+</script>
+</body>
+</html>
