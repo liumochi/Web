@@ -30,6 +30,7 @@
             position: absolute;
             left:0;
             top:0;
+            overflow: hidden;
         }
         #left,#right{
             width: 200px;
@@ -136,7 +137,7 @@
     </div>
     <div id="small-pic">
         <ul id="small-img">
-        <li><img src="img/1.jpg" alt=""/></li>
+        <li style="opacity:1"><img src="img/1.jpg" alt=""/></li>
         <li><img src="img/2.jpg" alt=""/></li>
         <li><img src="img/3.jpg" alt=""/></li>
         <li><img src="img/4.jpg" alt=""/></li>
@@ -197,7 +198,7 @@
           }else{
               animate(oSmallImg,{left:-(idx-1)* (aSmallImg[0].offsetWidth+10)})
           }
-             animate(oBigImg[idx],{height:320})
+             animate(aBigImg[idx],{height:320})
     }
 
 
