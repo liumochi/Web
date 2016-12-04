@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>表</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+        #clock{
+            width: 400px;
+            height: 400px;
+        position: relative;
+            margin:100px auto;
+            border-radius: 50%;
+            border:3px solid #000000;
+            background: #00ff00;
+        }
+        #dial li{
+            width: 4px;
+            height: 10px;
+            position: absolute;
+            background: #000;
+            left:198px;
+            top:0;
+        }
+        #dial li:nth-child(5n+1){
+            height: 20px;
+        }
+        #hour{
+            width: 8px;
+            height: 35px;
+            position: absolute;
+            left:96px;
+            top:65px;
+            background: #000;
+
+        }
+
+    </style>
+</head>
+<body>
+<div id="clock"></div>
+<div id="dial"></div>
+<div id="hour"></div>
+<div id="minute"></div>
+<div id="second"></div>
+</body>
+</html>
