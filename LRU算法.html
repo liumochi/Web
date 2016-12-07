@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LRU</title>
+</head>
+<body>
+<div>页面个数<input type="text" id="number"><button id="btn">next</button></div>
+<button id="show">show</button>
+<script>
+    (function () {
+        var oShow = document.getElementById('show');
+        var  oBtn = document.getElementById('btn');
+        var oNumber = document.getElementById('number');
+        var number = null;
+        var aPage = [];
+        var iProcessIndex = 0;
+        var iPageIndex = 0;
+        var aProcess = [7,0,1,2,0,3,0,4,2,3,0,3,2,1,2,0,1,7,0,1];
+        var aClock = [];
+        oBtn.onclick = function () {
+            number = oNumber.value;
+//            aPage.length = number;
+        };
+        oShow.onclick = function () {
+//            aPage[iPageIndex].clock = 0;
+//            if(iProcessIndex == )
+
+            if(iPageIndex >= number){
+                for(var i=0;i<aPage.length;i++){
+                    if(aPage[i] == aProcess[iProcessIndex]){
+                        aPage[i] = aProcess[iProcessIndex];
+                        aClock[i] = 0;
+                        break;
+                    }
+
+                }
+                if(i == aPage.length){
+                    var iMax = 0;
+                    for(i = 0;i<aClock.length;i++){
+                        if(aClock[iMax] < aClock[i]){
+                            iMax = i;
+                        }
+                    }
+                    console.log("第"+iMax+"个位置发生替换");
+                    aPage[iMax] = aProcess[iProcessIndex];
+                    aClock[iMax] = 0;
+                }
+
+            }else{
+                for(i=0;i<aPage.length;i++){
+                    if(aPage[i] == aProcess[iProcessIndex]){
+                        aPage[i] = aProcess[iProcessIndex];
+                        aClock[i] = 0;
+                        break;
+                    }
+
+                }
+                if(i == aPage.length){
+                    aPage[iPageIndex] = aProcess[iProcessIndex];
+                    aClock[iPageIndex] = 0;
+                }
+            }
+            for(i = 0;i<aPage.length;i++){
+                aClock[i] = aClock[i] + 1;
+            }
+            iPageIndex++;
+            iProcessIndex++;
+            if(iProcessIndex == aProcess.length){
+                alert("完成");
+                oShow.onclick = null;
+            }
+            console.log("页面的内容为:"+aPage);
+            console.log("页面中的元素的生存时间:"+aClock);
+        }
+    })()
+</script>
+
+</body>
+</html>
