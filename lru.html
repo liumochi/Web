@@ -14,6 +14,7 @@
          <input type="text" id="number"/>
          <p>请输入分配的物理块数</p>
          <input type="text" id="line"/>
+         <button id="getVal">获取值</button>
          <button id="btn">运行</button>
          <div id="content">
 
@@ -23,19 +24,21 @@
 </body>
 <script>
     var oBtn = document.getElementById('btn');
+    var ogetVal = document.getElementById('getVal');
     var oNumber = document.getElementById("number");
+    var oLine = document.getElementById('line');
     var aProcess = [];
     var line = null;
     var aPage = [];
     var iProcessIndex = 0;
     var iPageIndex = 0;
     var aClock = [];
-    oBtn.onclick = function(){
+    ogetVal.onclick = function(){
+        line = oLine.value;
         var stringProcess = oNumber.value;
         aProcess = stringProcess.split(",");
-        console.log(aProcess);
-
-
+    };
+    oBtn.onclick = function(){
         if(iPageIndex >= line){
             for(var i=0;i<aPage.length;i++){
                 if(aPage[i] == aProcess[iProcessIndex]){
@@ -43,7 +46,6 @@
                     aClock[i] = 0;
                     break;
                 }
-
             }
             if(i == aPage.length){
                 var iMax = 0;
