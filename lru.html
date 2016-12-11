@@ -3,7 +3,10 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>lru算法</title>
+
+
     <style>
+
 
 
     </style>
@@ -14,8 +17,7 @@
          <input type="text" id="number"/>
          <p>请输入分配的物理块数</p>
          <input type="text" id="line"/>
-         <button id="getVal">获取值</button>
-         <button id="btn">运行</button>
+         <button id="getVal">获取值</button><button id="btn">运行</button>
          <div id="content">
 
          </div>
@@ -27,63 +29,75 @@
     var ogetVal = document.getElementById('getVal');
     var oNumber = document.getElementById("number");
     var oLine = document.getElementById('line');
-    var aProcess = [];
+    var aQueue = [];
     var line = null;
     var aPage = [];
-    var iProcessIndex = 0;
-    var iPageIndex = 0;
-    var aClock = [];
+    var queueIdx = 0;
+    var pageIdx = 0;
+    var time = [];
     ogetVal.onclick = function(){
         line = oLine.value;
         var stringProcess = oNumber.value;
-        aProcess = stringProcess.split(",");
+        aQueue = stringProcess.split(",");
     };
     oBtn.onclick = function(){
-        if(iPageIndex >= line){
+
+        if(pageIdx >= line){
             for(var i=0;i<aPage.length;i++){
-                if(aPage[i] == aProcess[iProcessIndex]){
-                    aPage[i] = aProcess[iProcessIndex];
-                    aClock[i] = 0;
+                if(aPage[i] == aQueue[queueIdx]) {
+                    aPage[i] = aQueue[queueIdx];
+                    time[i] = 0;
                     break;
                 }
+
             }
-            if(i == aPage.length){
+//            timer = setInterval(function() {
+//                if(i != length) {
+//                    flog = 0;
+//                    stackStatus.html(length - i - 1);
+//                    loseStatus.html(parseInt(((i - flogTime + 1) / stack.length)* 100) + '%');
+//                    if((length - i - 1) == 0)
+
+                        if(i == aPage.length){
                 var iMax = 0;
-                for(i = 0;i<aClock.length;i++){
-                    if(aClock[iMax] < aClock[i]){
+                for(i = 0;i<time.length;i++){
+                    if(time[iMax] < time[i]){
                         iMax = i;
                     }
                 }
-                console.log("第"+iMax+"个位置发生替换");
-                aPage[iMax] = aProcess[iProcessIndex];
-                aClock[iMax] = 0;
+                console.log("索引pageIdx :"+iMax+"满足最近最久，可以置换");
+                aPage[iMax] = aQueue[queueIdx];
+                time[iMax] = 0;
             }
 
         }else{
             for(i=0;i<aPage.length;i++){
-                if(aPage[i] == aProcess[iProcessIndex]){
-                    aPage[i] = aProcess[iProcessIndex];
-                    aClock[i] = 0;
+                if(aPage[i] == aQueue[queueIdx]){
+                    aPage[i] = aQueue[queueIdx];
+                    time[i] = 0;
                     break;
                 }
 
             }
             if(i == aPage.length){
-                aPage[iPageIndex] = aProcess[iProcessIndex];
-                aClock[iPageIndex] = 0;
+                aPage[pageIdx] = aQueue[queueIdx];
+                time[pageIdx] = 0;
             }
         }
         for(i = 0;i<aPage.length;i++){
-            aClock[i] = aClock[i] + 1;
+            time[i] = time[i] + 1;
         }
-        iPageIndex++;
-        iProcessIndex++;
-        if(iProcessIndex == aProcess.length){
+                pageIdx++;
+                queueIdx++;
+        console.log("页面内容:"+aPage);
+        console.log("元素存在时间:"+time);
+
+        if(queueIdx == aQueue.length){
             alert("完成");
             oBtn.onclick = null;
         }
-        console.log("页面的内容为:"+aPage);
-        console.log("页面中的元素的生存时间:"+aClock);
+
+
     }
 
 
