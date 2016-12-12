@@ -9,14 +9,14 @@
             padding:0;
         }
         #state{
-            background: #666;
+            background: #999;
             position:relative;
             width: 1000px;
             height: 400px;
             margin:100px auto;
             box-shadow: 10px 10px 5px #999;
             -webkit-perspective: 800px;
-            -webkit-perspective-origin: 50% -10%;
+            -webkit-perspective-origin: 50% -30%;
         }
         #container{
             width: 128px;
@@ -26,15 +26,24 @@
             margin-left: -64px;
             margin-top:100px;
             -webkit-transform-style: preserve-3d;
-            -webkit-transition: transform .5s ease-in-out;
+            -webkit-transition: transform .5s ease-in-out ;
+            /*-webkit-animation: rotateCube 2s linear infinite;*/
 
 
         }
+        /*@-webkit-keyframes rotateCube {*/
+            /*from{*/
+
+            /*}*/
+            /*to{*/
+                /*-webkit-transform: rotateY(-360deg);*/
+            /*}*/
+        /*}*/
         #container img{
             width: 128px;
             height: 100px;
             position: absolute;
-
+            -webkit-transition: transform 1s ease-in-out ;
 
         }
 
@@ -59,9 +68,19 @@
     var oContainer = document.getElementById('container');
     var aImg = oContainer.getElementsByTagName('img');
     var translateDis = 128/2/Math.tan(20 * Math.PI/180);
-    for(var i=0;i<aImg.length;i++){
-        aImg[i].style.WebkitTransform = 'rotateY('+ -i*40 +'deg) translateZ('+(translateDis+20)+'px)';
-    }
+//    for(var i=0;i<aImg.length;i++){
+//
+//        aImg[i].style.WebkitTransform = 'rotateY('+ -i*40 +'deg) translateZ('+(translateDis+20)+'px)';
+//    }
+    var j = 8;
+    var timer = setInterval(function () {
+        if(j==0){
+            clearInterval(timer);
+        }
+        aImg[j].style.WebkitTransform = 'rotateY('+ -j*40 +'deg) translateZ('+(translateDis+20)+'px)';
+        j--;
+    },100);
+
     var idx = 0;
     oContainer.onclick = function () {
            idx++;
