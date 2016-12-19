@@ -59,6 +59,9 @@
 <script>
     var num=0;
     var oContainer = document.getElementById('container');
+    var oNext = document.getElementById('next');
+    var oPrev = document.getElementById('prev');
+    var iNow = 0;
     for(var i=0;i<24;i++){
         var oImg = new Image();
         oImg.onload = function () {
@@ -124,17 +127,19 @@
 
         var flag = true;
         function fn() {
-             var fnleft = (oContainer.offsetWidth - 750) / 2;
-            var fntop = (oContainer.offsetHeight - 500) / 2;
+
                 if(flag){
+                    var fnleft = (oContainer.offsetWidth - 750) / 2;
+                    var fntop = (oContainer.offsetHeight - 500) / 2;
                     for(var i=0;i<aDiv.length;i++){
+
                         aDiv[i].style.left = aDiv[i].rowCol.col * 125+fnleft +'px';
                         aDiv[i].style.top = aDiv[i].rowCol.row * 125+fntop +'px';
                         aDiv[i].style.WebkitTransform = 'rotate(0deg)';
                         aDiv[i].style.border = '1px solid #fff';
-                        var oSpan = aDiv[i].getElementsByTagName('span')[0];
-                        oSpan.style.opacity=1;
-                        oSpan.style.background ='url(img/'+ (this.index+1)+'.jpg)'+(-125*aDiv[i].rowCol.col)+'px' +(-125*aDiv[i].rowCol.row)+'px';
+                       var oSpan = aDiv[i].getElementsByTagName('span')[0];
+                        oSpan.style.opacity = 1;
+                        oSpan.style.background = 'url(img/'+ (this.index+1) +'.jpg)'+ (-125*aDiv[i].rowCol.col) +'px '+(-125*aDiv[i].rowCol.row)+'px';
                     }
                     iNow=this.index;
                     oNext.style.display ='block';
@@ -143,6 +148,7 @@
                     for(var i=0;i<aDiv.length;i++){
                         aDiv[i].style.left = aDiv[i].pos.left +'px';
                         aDiv[i].style.top = aDiv[i].pos.top +'px';
+                        var rotateDeg = parseInt(Math.random() *40 -20);
                         aDiv[i].style.WebkitTransform = 'rotate('+ rotateDeg+'deg)';
                         aDiv[i].style.border = '5px solid #fff';
                         var oSpan = aDiv[i].getElementsByTagName('span')[0];
@@ -152,8 +158,39 @@
                     oPrev.style.display ='none';
                 }
             flag = !flag;
+        }
+        oNext.onclick = oPrev.onclick = function () {
+            if(this == oNext){
+                 iNow++;
+                if(iNow == aDiv.length){
+                        iNow=0;
+                }
+            }else{
+                iNow--;
+                if(iNow ==-1){
+                    iNow =aDiv.length - 1;
+                }
+            }
+            var arr =[];
+            for(var i=0;i<24;i++){
+                arr.push(i);
+            }
+            arr.sort(function () {
+                return Math.random()-0.5;
+            });
+            var aa = 0;
+            var timer2 = setInterval(function(){
+                var idx = arr.pop();
+                var oSpan = aDiv[idx].getElementsByTagName('span')[0];
+                oSpan.style.background = 'url(img/'+ (iNow+1) +'.jpg) '+ (-125*aDiv[idx].rowCol.col) +'px '+ (-125*aDiv[idx].rowCol.row) +'px';
+                aa++;
+                if(aa == 24){
+                    clearInterval(timer2);
+                }
+            },30);
 
         }
+
 
 
     }
