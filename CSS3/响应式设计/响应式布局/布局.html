@@ -8,51 +8,84 @@
     <title>Title</title>
     <style>
         body{
-            margin-top: 35px;
-            text-align: center;
+            margin-top:35px;
+            text-align:center;
         }
-        h3,p{
+
+        h3, p{
             padding:20px;
         }
+
         .container{
-            width: 960px;
+            width:960px;
             margin:0 auto;
         }
-        #header,#footer,#mainbody,#navigation,#sidebar{
+
+        #header, #navigation, #footer, #mainbody, #sidebar{
             height:100px;
-            line-height: 25px;
-            background: #eee;
-            margin-bottom: 20px;
+            line-height:25px;
+            background:#eee;
+            margin-bottom:20px;
         }
-        #mainbody,#sidebar{
-           height:300px;
-            float: left;
+
+        #mainbody, #sidebar{
+            height:300px;
+            float:left;
         }
-        #mainbody{
-            height:620px;
+        #mainbody {
+            width:620px;
             margin-right:20px;
-            background: #00ffff;
+            background:#ddefcb;
         }
         #sidebar{
-            height:320px;
-            background: #00ff00;
+            width:320px;
+            background:#ffcbdd;
         }
         #footer{
             clear:both;
         }
+
         @media (min-width: 1200px) {
-            .container{
-                width: 1170px;
+            .container {
+                width:1170px;
             }
             #mainbody{
-                width: 770px;
+                width:770px;
                 margin-right:30px;
             }
             #sidebar{
-                width: 370px;
+                width:370px;
+            }
+        }
+
+        @media (max-width: 959px) {
+            .container {
+                width:100%;
+            /*把布局变成流动;*/
+            }
+            /*固定布局和流式布局,移动端通常是流式布局*/
+            #mainbody{
+                width:67%;
+                margin-right: 3%;
+            }
+            #sidebar{
+                width: 30%;
+                float: right;
             }
 
         }
+
+        @media (max-width: 767px) {
+           #mainbody,#sidebar{
+               float:none;
+               width: 100%;
+           }
+        }
+
+
+
+
+
     </style>
 </head>
 <body>
@@ -62,6 +95,15 @@
     </header>
     <nav id="navigation">
         <h3>导航</h3>
+    </nav>
+    <nav id="nav">
+        <ul>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+        </ul>
     </nav>
     <section id="mainbody">
         <h3>主体</h3>
@@ -73,7 +115,8 @@
     <aside id="sidebar">
         <h3>边栏</h3>
         <p>FKDASJTKLGDJKENGSKOBNIOSDNBKSDNHKN怀特人进入国家认可热
-            adikfhjwepihjgfiwdngfkdongkoahyjiprejgpk</p>
+            adikfhjwepihjgfiwdngfkdongkoahyjiprejgpk
+        </p>
     </aside>
     <footer id="footer">
         <h3>页脚</h3>
