@@ -1,0 +1,112 @@
+html{
+    background: #fff;
+}
+
+#nav{
+
+    display: -webkit-box;
+    -webkit-box-pack:justify;
+    -webkit-box-sizing:content-box;
+}
+#nav ul{
+    background: #000;
+    width: 100%;
+    height:50px;
+
+}
+#nav li{
+    float:left;
+    margin-right:50px;
+
+}
+
+#nav li a{
+
+    font-size: 20px;
+    color:#fff;
+
+}
+#sidebar img{
+    width: 100%;
+
+}
+#sidebar li{
+    width: 25%;
+    float:left;
+
+}
+
+@media(max-width: 1170px){
+    #sidebar li{
+        width:50%;
+    }
+}
+
+
+
+
+@media(max-width: 767px) {
+    #sidebar li {
+        width: 100%;
+    }
+}
+    /*.toggle-btn{*/
+        /*display: inline-block;*/
+        /*font-size: 20px;*/
+        /*text-decoration: none;*/
+        /*background: #000;*/
+        /*color:#fff;*/
+        /*padding:7px 10px;*/
+        /*position: absolute;*/
+        /*right:10px;*/
+        /*top:50px;*/
+    /*}*/
+
+    /*/!* 隐藏关闭按钮 *!/*/
+    /*#nav .close{*/
+        /*display: none;*/
+    /*}*/
+    /*/!* 导航为目标状态的时候显示关闭按钮 *!/*/
+    /*#nav:target .close{*/
+        /*display: inline-block;*/
+    /*}*/
+
+    /*/!* 初始隐藏导航 *!/*/
+    /*#nav{*/
+        /*display: none;*/
+    /*}*/
+    /*/!* 导航为目标状态时的样式 *!/*/
+    /*#nav:target{*/
+        /*display:block;*/
+        /*position: absolute;*/
+        /*top:0;*/
+        /*padding-top:70px;*/
+        /*width:100%;*/
+    /*}*/
+    /*/!* 目标状态下的导航的 ul 标签 *!/*/
+    /*#nav:target ul{*/
+        /*background: #000;*/
+    /*}*/
+    /*/!* 目标状态下的导航的 li 与 a *!/*/
+    /*#nav:target li,#nav:target li a{*/
+        /*display: block;*/
+        /*color: #eee;*/
+        /*text-align: left;*/
+    /*}*/
+    /*/!* 目标状态下的导航的列表下的 a 标签的悬停样式 *!/*/
+    /*#nav:target li a:hover{*/
+        /*background: #3b3b3b;*/
+    /*}*/
+
+
+    /*/!* 目标状态下导航的激活状态的样式 *!/*/
+    /*#nav:target .active{*/
+        /*background: #272727;*/
+    /*}*/
+
+/*}*/
+
+
+
+
+
