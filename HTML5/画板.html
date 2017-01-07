@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            background: #000;
+        }
+        #cvs1{
+            background: #fff;
+            /*width: 400px;*/
+            /*height: 300px;*/
+        }
+    </style>
+</head>
+<body>
+<canvas id="cvs1" width="800" height="500"></canvas>
+<script>
+    var cvs = document.getElementById('cvs1');
+    var ctx = cvs.getContext('2d');
+
+    ctx.lineWidth = 2;
+
+    cvs.onmousedown = function(e){
+        ctx.moveTo(e.clientX-cvs.offsetLeft, e.clientY-cvs.offsetTop);
+
+        cvs.onmousemove = function(e){
+            ctx.lineTo(e.clientX-cvs.offsetLeft, e.clientY-cvs.offsetTop);
+            ctx.stroke();
+        };
+
+        cvs.onmouseup = function(){
+            // cvs.onmousedown = null;
+            cvs.onmousemove = null;
+        };
+    };
+</script>
+</body>
+</html>
