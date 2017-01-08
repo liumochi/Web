@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>导航</title>
+    <style>
+        *{
+            margin:0
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            height:50px;
+              margin-left:50px;
+            margin-top: 20px;
+        }
+        #container li{
+            float:left;
+            width: 120px;
+            margin-right: 10px;
+        }
+       #div1{
+           height: 400px;
+           background: red;
+       }
+        #div2{
+
+            height: 400px;
+            background: green;
+        }
+        #div3{
+
+            height: 400px;
+            background: blue;
+        }
+
+
+    </style>
+</head>
+<body>
+<ul id="container">
+    <li><a href="#div1">link1</a></li>
+    <li><a href="#div2">link2</a></li>
+    <li><a href="#div3">link3</a></li>
+</ul>
+        <div id="div1">div1</div>
+        <div id="div2">div2</div>
+        <div id="div3">div3</div>
+
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+   $(function(){
+        $('#container a').on('click',function(){
+           var href = $(this).attr('href');
+           $(document.documentElement).animate({
+               scrollTop: $(href).offset().top
+           });
+            history.pushState($(href).offset().top,'');
+            return false;
+        });
+        window.onpopstate = function(e){
+            console.log(e.state);
+            $(document.documentElement).animate({
+                    scrollTop: e.state
+            });
+
+        }
+   });
+</script>
+</body>
+</html>
