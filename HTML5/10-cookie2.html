@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+   // document.cookie='name=zhangsan';
+
+    function setCookie(key,value,day){
+        var str = key+"="+value+";";
+        if(day){
+            var date = new Date();
+            date.setDate(date.getDate()+day);
+            str+= 'expires='+date;
+        }
+        document.cookie=str;
+
+    }
+    setCookie('name','lisi',7);
+    function getCookie(key){
+        var str = document.cookie;
+        var arr = str.split('; ');
+        for(var i=0;i<arr.length;i++){
+            var arr2 = str.split('=');
+            if(arr2[0] == key){
+                return arr2[1];
+            }
+        }
+
+    }
+    console.log(getCookie('name'));
+//    function removeCookie(key){
+//        setCookie(key,'',-1);
+//    }
+//    removeCookie('name');
+</script>
+</body>
+</html>
