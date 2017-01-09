@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="index.php" id="form1">
+
+        用户名:<input type="text" id="user"/><br/><br/>
+        密码:<input type="text" id="pwd"/><br/><br/>
+        两周免登陆<input type="checkbox" id="checkbox"/>
+        <input type="submit" value="登录"/>
+
+</form>
+<script>
+    var oUser = document.getElementById('user');
+    var oPwd = document.getElementById('pwd');
+    var oCheck = document.getElementById('checkbox');
+    var oForm = document.getElementById('form1');
+    oForm.onsubmit = function () {
+        setCookie('username','oUser.value',14);
+        setCookie('password','oPwd.value',14);
+    }
+    var user = getCookie('username');
+    var pwd = getCookie('password');
+    if(user&&pwd){
+        oUser.value = user;
+        oPwd.value = pwd;
+        oForm.submit();
+    }
+    function setCookie(key,value,day){
+        var str = key+"="+value+";";
+        if(day){
+            var date = new Date();
+            date.setDate(date.getDate()+day);
+            str+= 'expires='+date;
+        }
+        document.cookie=str;
+
+    }
+    function getCookie(key){
+        var str = document.cookie;
+        var arr = str.split('; ');
+        for(var i=0;i<arr.length;i++){
+            var arr2 = str.split('=');
+            if(arr2[0] == key){
+                return arr2[1];
+            }
+        }
+
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>
