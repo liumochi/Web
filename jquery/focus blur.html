@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    姓名：<input type="text" name="name"/><br />
+    学号：<input type="text" name="num"/>
+</body>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+    $(function(){
+        $("input").focus(function(){
+            $(this).css("background-color","#cccccc");
+        });
+        $("input").blur(function(){
+            $(this).css("background-color","#ffffff");
+        })
+    });
+
+</script>
+</html>
