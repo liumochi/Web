@@ -7,16 +7,20 @@
     <script>
         $(document).ready(function(){
             $("button").click(function(){
-                $.get("/try/ajax/demo_test.php",function(data,status){
-                    alert("数据: " + data + "\n状态: " + status);
-                });
+                $.post("/try/ajax/demo_test_post.php",{
+                            name:"菜鸟教程",
+                            url:"http://www.runoob.com"
+                        },
+                        function(data,status){
+                            alert("数据: \n" + data + "\n状态: " + status);
+                        });
             });
         });
     </script>
 </head>
 <body>
 
-<button>发送一个 HTTP GET 请求并获取返回结果</button>
+<button>发送一个 HTTP POST 请求页面并获取返回内容</button>
 
 </body>
 </html>
