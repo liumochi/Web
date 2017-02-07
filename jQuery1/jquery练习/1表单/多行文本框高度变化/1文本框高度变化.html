@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .msg{
+            width:300px;
+            margin:100px;
+            font:normal 12px/17px Arial;
+        }
+        .msg_caption span{
+            display: block;
+            float:left;
+            background: red;
+            color:white;
+            margin:0 4px;
+            padding:4px 10px;
+            cursor:pointer;
+        }
+        .msg textarea{
+            width: 300px;
+            height:150px;
+            border:1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<script src="../../../jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        var $comment=$('#comment');
+        $('.bigger').on('click',function(){
+           //$comment.height($comment.height()<500?$comment.height()+50:500);
+            if(!$comment.is(':animated')){
+                if($comment.height()<500){
+                    $comment.animate({
+                        height:'+=50'
+                    },400)
+                }
+
+            }
+
+        });
+        $('.smaller').on('click', function () {
+            //$comment.height($comment.height()>50?$comment.height()-50:50);
+            if(!$comment.is(':animated')){
+                if($comment.height()>50){
+                    $comment.animate({
+                        height:'-=50'
+                    },400)
+                }
+
+            }
+
+        })
+    })
+</script>
+    <form action="" method="post">
+        <div class="msg">
+            <div class="msg_caption">
+                <span class="bigger" >放大</span>
+                <span class="smaller" >缩小</span>
+            </div>
+            <div>
+                <textarea id="comment" rows="8" cols="20">多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.</textarea>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
