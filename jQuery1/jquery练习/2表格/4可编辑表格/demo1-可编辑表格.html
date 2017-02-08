@@ -28,9 +28,10 @@
                     if(!$(this).children(':input').size()){
                         var $input=$('<input type="text">');
                         $input.val($(this).text()).css('border','none');
+                        $(this).empty().append($input);
                         $(this).trigger('select');
                         $input.on('keyup',function(e){
-                            if(e.which==13){
+                            if(e.which==13) {
                                 $(this).parent().html($(this).val());
                             }
                         })
