@@ -189,8 +189,22 @@ body {
      <script>
          $(function(){
              //轮播图
+             var iNow=0;
+             var timer;
+             $('.content').mouseout(function () {
+                 timer=setInterval(function () {
 
-                var $tabs=$('.cate-mod div.list li');
+                     iNow++;
+                     if(iNow==$('.cate-mod div.list li').length){
+                         iNow=0;
+                     }
+                         $('.cate-mod div.list li').eq(iNow).trigger('click');
+
+                 },1000);
+             })
+             $('.content').mouseover(function () {
+                 clearInterval(timer);
+             });
 
 
 
@@ -200,10 +214,11 @@ body {
                  var $li=$(this);
                  setTimeout(function () {
                      var index=$li.index();
+                     iNow=index;
                      $li.addClass('on').siblings().removeClass('on');
 
                      $('.content .item').eq(index).show().siblings().hide();
-                 },400);
+                 },100);
 
              });
 

@@ -20,61 +20,17 @@
         </script>
         <script>
             $(function () {
-                $('.main > a').toggle(function () {
-                    $(this).next('ul').slideDown('slow');
-                    $(this).css('background-image',"url('images/up.gif')");
-                }, function () {
-                    $(this).next('ul').slideUp('slow');
-                    $(this).css('background-image',"url('images/up.gif')");
-                });
                 $('.hmain').hover(function () {
-                    $(this).children('ul').slideDown('slow');
+                    $(this).children('ul').stop().slideDown('slow');
                     $(this).children('a').css('background-image',"url('images/up.gif')");
                 }, function () {
-                   $(this).children('ul').slideUp('slow');
+                   $(this).children('ul').stop().slideUp('slow');
                     $(this).children('a').css('background-image',"url('images/down.gif')");
                 });
             });
         </script>
     </head>
     <body>
-        <ul>
-            <li class="main">
-                <a href="#">菜单项1</a>
-                <ul>
-                    <li>
-                        <a href="#">子菜单11</a>
-                    </li>
-                    <li>
-                        <a href="#">子菜单12</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="main">
-                <a href="#">菜单项2</a>
-                <ul>
-                    <li>
-                        <a href="#">子菜单21</a>
-                    </li>
-                    <li>
-                        <a href="#">子菜单22</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="main">
-                <a href="#">菜单项3</a>
-                <ul>
-                    <li>
-                        <a href="#">子菜单31</a>
-                    </li>
-                    <li>
-                        <a href="#">子菜单32</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <br>
-        <br>
         <ul>
             <li class="hmain">
                 <a href="#">菜单项1</a>

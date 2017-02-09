@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<script src=../../../jquery-1.12.4.js></script>
+<script>
+    $(function () {
+        $('.bigger').on('click', function () {
+            var textF = $('#para').css('font-size');
+            textF = parseInt(textF);
+            textF+=3;
+            $('#para').css('font-size', textF);
+
+        });
+        $('.smaller').on('click',function(){
+            var textF = $('#para').css('font-size');
+            textF = parseInt(textF);
+            textF-=3;
+            $('#para').css('font-size', textF);
+
+        });
+
+    });
+</script>
+<div class="msg">
+    <div class="msg_caption">
+        <span class="bigger">放大</span>
+        <span class="smaller">缩小</span>
+    </div>
+    <div>
+        <p id="para">
+            This is some text. This is some text. This is some text. This is some text. This
+            is some text. This is some text. This is some text. This is some text. This is some
+            text. This is some text. This is some text. This is some text. This is some text.
+            This is some text. This is some text. This is some text. This is some text. This
+            is some text. This is some text.
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
