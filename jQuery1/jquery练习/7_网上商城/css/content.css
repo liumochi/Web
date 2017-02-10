@@ -1,0 +1,252 @@
+*{
+    margin:0;
+    padding:0;
+}
+a{
+    text-decoration: none;
+}
+ul,ol{
+    list-style: none;
+}
+#content{
+    margin:0 auto;
+    width: 990px;
+    position: relative;
+}
+.janeshop{
+    height:560px;
+    overflow: hidden;
+    padding:10px 0;
+}
+#jnCatalog{
+    width: 187px;
+    height: 560px;
+    float: left;
+    overflow: hidden;
+    margin-right:10px;
+}
+#jnCatalog h2{
+    font-size: 12px;
+    line-height: 30px;
+    height:30px;
+    color:#fff;
+    text-indent: 13px;
+
+}
+.jnCatainfo{
+    width: 165px;
+    height: 524px;
+    overflow: hidden;
+    padding:5px 10px 0;
+    border:1px solid #000;
+    border-style:none solid solid;
+}
+.jnCatainfo h3{
+    width: 164px;
+    height: 24px;
+    line-height:24px;
+    border-bottom:1px solid #eeeeee;
+    font-size: 14px;
+    color:#000;
+
+}
+.jnCatainfo ul{
+    margin-top:20px;
+    float:left;
+    padding:0px 2px 8px;
+
+}
+.jnCatainfo li{
+    height:24px;
+    line-height:24px;
+    float:left;
+    width: 79px;
+    overflow: hidden;
+}
+.jnCatainfo li a{
+    color:#444444;
+    font-size: 12px;
+}
+.jnCatainfo li a:hover{
+    color:#0091ff;
+}
+.jnCatainfo li a.promoted{
+    color:red;
+}
+#jnNotice{
+    width: 230px;
+    height: 321px;
+    float:left;
+    overflow: hidden;
+    position: absolute;
+    top:10px;
+    right:0;
+}
+#jnNoticeInfo{
+    width: 228px;
+    height: 133px;
+    border:1px solid #999999;
+    overflow: hidden;
+}
+#jnNoticeInfo h2{
+    border-bottom:1px solid #AEADAE;
+    height:23px;
+    line-height: 23px;
+    text-indent: 10px;
+    font-size: 14px;
+    color:#000;
+}
+#jnNoticeInfo li a{
+    color: #666666;
+    font-size: 12px;
+}
+#jnNoticeInfo li a:hover{
+    color:#0091ff;
+}
+
+#jnNoticeInfo ul{
+    padding:6px;
+}
+#jnNoticeInfo li{
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+}
+#jnMiaosha{
+    overflow: hidden;
+}
+.JS_css3 img{
+    animation: rotateCube2 0.5s linear;
+}
+.JS_css3 img:hover{
+    animation: rotateCube 0.5s linear;
+
+}
+
+@-webkit-keyframes rotateCube {
+    from {
+
+    }
+    to {
+        -webkit-transform: rotate(720deg);
+    }
+}
+@-webkit-keyframes rotateCube2 {
+    from {
+        -webkit-transform: rotate(720deg);
+    }
+    to {
+        -webkit-transform: rotate(0deg);
+    }
+}
+#jnImageroll{
+    float:left;
+    width: 550px;
+    height: 320px;
+    position: relative;
+    overflow: hidden;
+
+}
+#jnImageroll img{
+    position: absolute;
+    left:0;
+    top:0;
+}
+#jnImageroll div{
+    bottom:0;
+    overflow: hidden;
+    position: absolute;
+}
+#jnImageroll div a{
+    background: #444444;
+    color:#fff;
+    width: 79px;
+    height: 32px;
+    float:left;
+    margin-right:1px;
+    text-align: center;
+    padding:5px 15px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+#jnBrand{
+    float:left;
+    width: 790px;
+    height: 230px;
+    overflow: hidden;
+
+}
+#jnBrandTab{
+    width: 790px;
+    height: 29px;
+    position: relative;
+    float:left;
+    border-bottom:1px solid #AEADAE;
+}
+#jnBrandTab h2{
+    left:0;
+    width: 100px;
+    height: 29px;
+    font-size: 14px;
+    margin-top:10px;
+}
+#jnBrandTab ul{
+    position: absolute;
+    right:0;
+    top:10px;
+
+}
+#jnBrandTab li{
+    float: left;
+    margin-right:10px;
+    width: 40px;
+    height: 20px;
+    background: #999999;
+    text-align: center;
+}
+#jnBrandTab li a{
+font-size: 12px;
+
+    color: #000;
+}
+#jnBrandContent{
+    position: relative;
+    width: 790px;
+    height: 200px;
+    overflow: hidden;
+    float:left;
+}
+
+#jnBrandList{
+    position: absolute;
+    top:0;
+    width: 3200px;
+}
+#jnBrandList li{
+    width: 183px;
+    display: block;
+    float: left;
+    padding:0 10px;
+    margin-top:5px;
+}
+#jnBrandList li span{
+    width: 183px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    display:block;
+    font-size: 14px;
+    background: #999999;
+}
+#jnBrandList li span a{
+    background: #666666;
+
+    display: block;
+    color:white;
+    height: 24px;
+
+}
+#jnBrandList li span a:hover{
+    color:#0091ff;
+}
