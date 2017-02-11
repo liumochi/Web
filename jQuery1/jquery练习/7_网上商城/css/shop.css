@@ -1,0 +1,136 @@
+#jnProitem{
+    float: left;
+    width: 312px;
+    height: 560px;
+    display:inline;
+}
+#jnProitem .jqzoomWrap {
+    border: 1px solid #BBBBBB;
+    cursor: pointer;
+    float: left;
+    padding: 0;
+    position: relative;
+}
+#jnProitem span {
+    clear: both;
+    display: block;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+    width: 320px;
+}
+#jnProitem ul.imgList{
+    height: 80px;
+}
+#jnProitem ul.imgList li {
+    float:left;
+    margin-right:10px;
+}
+#jnProitem ul.imgList li img {
+    width:60px;
+    height:60px;
+    padding:1px;
+    background:#EEE;
+    cursor:pointer;
+}
+#jnProitem ul.imgList li img:hover {
+    padding:1px;
+    background:#999;
+}
+
+.tab{
+    clear:both;
+    float: left;
+    height: 230px;
+    overflow: hidden;
+    width: 310px;
+}
+.tab .tab_menu {
+    clear:both;
+}
+.tab .tab_menu li {
+    float:left;
+    text-align:center;
+    cursor:pointer;
+    list-style:none;
+    padding:1px 6px;
+    margin-right:4px;
+    background:#F1F1F1;
+    border:1px solid #898989;
+    border-bottom:none;
+}
+.tab .tab_menu li.hover {
+    background:#DFDFDF;
+}
+.tab .tab_menu li.selected {
+    color:#FFF;
+    background:#6D84B4;
+}
+.tab .tab_box {
+    clear:both;
+    border:1px solid #898989;
+}
+.tab .hide{
+    display:none
+}
+#jnDetails {
+    float: left;
+    display:inline;
+    overflow: hidden;
+    width: 468px;
+}
+#jnDetails .jnProDetail{
+    padding:0 10px 10px 10px;
+}
+#jnDetails .jnProDetailList li{
+    line-height:25px;
+    float:left;
+    width:100%;
+}
+#jnDetails .jnProDetailList strong.del {
+    color: #404040;
+    font-size: 12px;
+    position: static;
+    text-decoration: line-through;
+}
+#jnDetails .jnProDetailList strong {
+    font-weight:400;
+}
+#jnDetails .jnProDetailList .tbDetailPrice strong {
+    font-weight: 700;
+    color: #FF5500;
+    font: 24px Tahoma,Arial,Helvetica,sans-serif;
+    padding-right: 5px;
+    vertical-align: middle;
+}
+#jnDetails .jnProDetailList .color_change li , #jnDetails .jnProDetailList .pro_size li{
+    float:left;
+    margin-right:10px;
+    width:40px;
+}
+#jnDetails .jnProDetailList .color_change img {
+    width:30px;
+    height:30px;
+    padding:1px;
+    background:#EEE;
+    border:1px solid #BBB;
+    cursor:pointer;
+}
+#jnDetails .jnProDetailList .color_change img:hover,#jnDetails .jnProDetailList .color_change img.hover {
+    border:1px solid #f60;
+}
+#jnDetails .jnProDetailList .pro_size li{
+    display:block;
+    margin-right:6px;
+    border:1px solid #AAA;
+    cursor:pointer;
+    width:30px;
+    height:30px;
+    line-height:30px;
+    overflow:hidden;
+    text-align:center;
+}
+#jnDetails .jnProDetailList .pro_size li.cur{
+    border:1px solid #AAA;
+    background-color:#f60;
+}

@@ -207,6 +207,9 @@ ul,ol{
 }
 #jnBrandTab li a{
 font-size: 12px;
+    display: block;
+    height: 20px;
+    line-height: 20px;
 
     color: #000;
 }
@@ -249,4 +252,14 @@ font-size: 12px;
 }
 #jnBrandList li span a:hover{
     color:#0091ff;
+}
+#jnBrandTab .chos{
+    background: url('../images/chos.gif') no-repeat scroll 50% bottom transparent;
+    padding-bottom:3px;
+}
+#jnBrandTab .chos a {
+    background-color: #FA5889;
+    color: #FFFFFF;
+    outline: 0 none;
+
 }

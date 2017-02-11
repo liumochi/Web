@@ -17,6 +17,20 @@
             },function(){
                 return;
             });
+            $('#jnBrandTab li').on('click',function(){
+                    $(this).addClass('chos').siblings().removeClass('chos');
+                    var idx=$('#jnBrandTab li').index($(this));
+                showBrandList(idx);
+                return false;
+            }).eq(0).click();
+            function showBrandList(index){
+                var $rollobj = $("#jnBrandList");
+                var rollWidth = $rollobj.find("li").outerWidth();
+                rollWidth = rollWidth * 3;
+                $rollobj.stop(true,false).animate({
+                    left : -rollWidth*index
+                },1000);
+            }
 
 
 
