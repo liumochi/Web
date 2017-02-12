@@ -1,0 +1,142 @@
+#jnProitem{
+    display: inline;
+    width: 312px;
+    height: 560px;
+    float:left;
+}
+.jqzoomWrap {
+    position: relative;
+    border: 1px solid #999999;
+    float: left;
+    padding: 0;
+    width: 312px;
+    height: 312px;
+
+
+}
+.jqzoomWrap a img{
+    width: 312px;
+    height: 312px;
+}
+#jnProitem span{
+    padding-top:10px;
+    padding-bottom:10px;
+    display: block;
+    width: 320px;
+    text-align: center;
+}
+#jnProitem span img{
+    width: 99px;
+    height: 21px;
+
+}
+#jnProitem .imgList li{
+    float: left;
+    margin-right:10px;
+}
+#jnProitem .imgList li img {
+    width: 62px;
+    height: 62px;
+}
+#jnProitem .imgList .imgList1{
+   float: left;
+}
+#jnProitem .imgList .imgList2{
+    display: none;
+    float: left;
+}
+#jnProitem .imgList .imgList3{
+    display: none;
+    float: left;
+}
+#jnProitem .tab .tab_menu li{
+    float: left;
+    width: 62px;
+    height: 21px;
+    padding:1px 6px;
+    margin-right: 4px;
+    border:1px solid #999999;
+    cursor: pointer;
+    background: #BBBBBB;
+    font-size: 12px;
+    text-align: center;
+    line-height: 21px;
+
+}
+#jnProitem .tab .tab_menu .selected{
+    color:#fff;
+    background: #6D84B4;
+}
+#jnProitem .tab{
+    width: 310px;
+    height: 230px;
+    overflow: hidden;
+    clear: both;
+}
+.tab .tab_box{
+    clear: both;
+    border:1px solid #999999;
+    font-size: 14px;
+}
+.tab .hide{
+    display: none;
+}
+#jnDetails{
+    float:left;
+    width: 468px;
+    display: inline;
+    overflow: hidden;
+}
+#jnDetails .jnProDetail{
+ padding:0 10px 10px 10px;
+}
+h4{
+    font-size: 14px;
+}
+#jnDetails .jnProDetail .jnProDetailList>li:first-child{
+    font-size: 14px;
+    color: red;
+}
+.jnProDetailList strong.del{
+    color:red;
+    text-decoration: line-through;
+}
+.jnProDetailList .tbDetailPrice strong{
+    font-size: 40px;
+    color:#E31559;
+    vertical-align: middle;
+}
+#jnDetails .jnProDetailList .color_change li,
+#jnDetails .jnProDetailList .pro_size li{
+    margin-top: 10px;
+    width: 40px;
+    float:left;
+    margin-right: 10px;
+}
+.jnProDetailList .color_change{
+    width: 448px;
+    height: 67px;
+    font-size: 14px;
+
+}
+.pro_size{
+    width: 448px;
+    height: 57px;
+    font-size: 14px;
+}
+.pro_size li{
+    border:1px solid #999999;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin-right: 6px;
+    cursor: pointer;
+}
+.rating{
+    width: 80px;
+    height: 16px;
+    padding:0;
+    background: url(../images/star-matrix.gif) no-repeat 0 0;
+    margin-bottom:50px;
+}
