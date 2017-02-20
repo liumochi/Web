@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../angular-1.4.6.js"></script>
+
+</head>
+<body>
+<div ng-app="" ng-init="names=[
+    {name:'aa',country:'123'},
+    {name:'bb',country:'456'},
+    {name:'cc',country:'789'},
+                    ]">
+    <ul>
+    <li ng-repeat="x in names">
+            {{x.name +','+ x.country}}
+    </li>
+    </ul>
+
+
+</div>
+</body>
+</html>
