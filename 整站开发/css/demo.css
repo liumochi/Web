@@ -1,0 +1,53 @@
+#nav .wrapper{
+    height: 120px;
+}
+#nav .wrapper a.logo{
+    width: 188px;
+    height: 47px;
+    padding-top: 37px;
+    float: left;
+}
+#nav .wrapper ul{
+    margin-left:139px;
+    float: left;
+}
+#nav .wrapper ul li{
+    float: left;
+    font-size: 15px;
+    color:#626262;
+    margin-top:50px;
+}
+#nav .wrapper ul li a{
+    float: left;
+    padding:0 25px;
+}
+#nav .wrapper ul li div.line{
+    width: 1px;
+    height: 14px;
+    background: #6b6b6b;
+    float: right;
+    margin-top: 3px;
+}
+#search{
+    width: 130px;
+    height: 30px;
+    float: right;
+    margin-top: 45px;
+    border:1px;
+    background: #f1f3f6;
+}
+#search input{
+    border:none;
+    height: 100%;
+    width: 110px;
+    background: #f1f3f6;
+    padding:0;
+}
+#search span{
+    width: 10px;
+    height: 12px;
+    margin-top: 8px;
+    padding-right: 10px;
+    float: right;
+    background: url('../img/sprite.png') no-repeat;
+}
