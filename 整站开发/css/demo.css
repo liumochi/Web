@@ -6,9 +6,10 @@
     height: 47px;
     padding-top: 37px;
     float: left;
+    cursor: pointer;
 }
 #nav .wrapper ul{
-    margin-left:139px;
+    margin-left:90px;
     float: left;
 }
 #nav .wrapper ul li{
@@ -16,6 +17,7 @@
     font-size: 15px;
     color:#626262;
     margin-top:50px;
+    cursor: pointer;
 }
 #nav .wrapper ul li a{
     float: left;
@@ -42,6 +44,7 @@
     width: 110px;
     background: #f1f3f6;
     padding:0;
+    color:#999;
 }
 #search span{
     width: 10px;
@@ -50,4 +53,199 @@
     padding-right: 10px;
     float: right;
     background: url('../img/sprite.png') no-repeat;
+    cursor: pointer;
+}
+#banner{
+    width: 100%;
+    height: 460px;
+    background: #31333e;
+}
+#banner .wrapper{
+    height: 460px;
+    position: relative;
+}
+#banner .wrapper .prev{
+    position: absolute;
+    left:0;
+    top:50%;
+    margin-top:-25px;
+}
+#banner .wrapper .next{
+    position: absolute;
+    right:0;
+    top:50%;
+    margin-top:-25px;
+}
+#news .wrapper{
+    height: 492px;
+}
+#news .wrapper p:first-child{
+    font-size: 30px;
+    color: #626262;
+    padding-top: 80px;
+
+}
+#news .wrapper a img{
+    padding-top: 30px;
+}
+#news .wrapper .p1{
+    font-size:15px;
+    color: #626262;
+    padding-top: 30px;
+}
+#news .wrapper .web{
+    width: 334px;
+    text-align: center;
+
+}
+#news .wrapper h4{
+    color: #00aeff;
+    padding-top: 30px;
+}
+#news .wrapper .social{
+    width: 334px;
+    text-align: center;
+
+}
+#news .wrapper .mobile{
+    width: 334px;
+    text-align: center;
+
+}
+#news .wrapper div{
+    float: left;
+}
+#works .wrapper{
+    height: 500px;
+}
+#works{
+    background: #e2e7ed;
+}
+#works .wrapper .div1{
+    height: 70px;
+    line-height: 70px;
+    color:#626262;
+    font-size: 30px;
+ }
+#works .wrapper .img div{
+    width: 250px;
+    height: 200px;
+    float: left;
+   background-image: url('../img/works.png');
+}
+
+#works .wrapper .img div:nth-child(2){
+    background-position: -250px 0;
+}
+#works .wrapper .img div:nth-child(3){
+    background-position: -500px 0;
+}
+#works .wrapper .img div:nth-child(4){
+    background-position: -750px 0;
+}
+#works .wrapper .img div:nth-child(5){
+    background-position: 0 -200px;
+}
+#works .wrapper .img div:nth-child(6){
+    background-position: -250px -200px;
+}
+#works .wrapper .img div:nth-child(7){
+    background-position: -500px -200px;
+}
+#works .wrapper .img div:nth-child(8){
+    background-position: -750px -200px;
+}
+#clients .wrapper{
+    height: 154px;
+    position: relative;
+
+}
+#clients .wrapper .div1{
+    height: 70px;
+    line-height: 70px;
+    color:#626262;
+    font-size: 30px;
+}
+
+#clients .wrapper .left{
+    width: 23px;
+    height: 40px;
+    top:50%;
+    position: absolute;
+    left:0;
+}
+#clients .wrapper .right{
+    position: absolute;
+    width: 23px;
+    height: 40px;
+    top:50%;
+    right:0;
+}
+#clients .wrapper ul{
+    position: relative;
+    float: left;
+    padding-left:70px;
+
+}
+#clients .wrapper ul li{
+    float: left;
+    padding-right: 60px;
+}
+#clients .wrapper ul .li1{
+    padding-top: 10px;
+}
+#clients .wrapper ul .li2{
+    padding-top: 10px;
+}
+
+#footer{
+    background: #31333e;
+}
+#footer .wrapper{
+    height: 178px;
+    position: relative;
+}
+#footer .wrapper p{
+    color: #e2e7ed;
+    font-size: 15px;
+}
+#footer .wrapper .footerP{
+    padding-top: 40px;
+    font-size: 12px;
+    color: #e2e7ed;
+}
+#footer .footerLeft{
+    width: 600px;
+    float: left;
+}
+#footer .footerLeft .pp{
+    padding-top: 45px;
+}
+#footer .wrapper .img2{
+    float: right;
+    padding-top:45px;
+}
+#footer .wrapper .img2 div{
+    width: 38px;
+    height: 38px;
+    float: left;
+    background-image:url('../img/footer.png');
+}
+#footer .wrapper .img2 div:nth-child(2){
+    background-position: -40px 0px;
+}
+#footer .wrapper .img2 div:nth-child(3){
+    background-position: -80px 0;
+}
+#footer .wrapper .img2 div:nth-child(4){
+    background-position: -120px 0;
+}
+#footer .wrapper .img2 div:nth-child(5){
+    background-position: -160px 0;
+}
+#footer .wrapper .img2 div:nth-child(6){
+    background-position: -200px 0;
+}
+#footer .wrapper .img2 div:nth-child(7){
+    background-position: -240px 0;
 }
