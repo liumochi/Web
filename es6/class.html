@@ -5,6 +5,24 @@
     <title></title>
 </head>
 <body>
-
+        <script>
+            class Cat{
+                constructor(name){
+                    this.name=name;
+                }
+                eat(){
+                    console.log(this.name);
+                }
+            }
+            class Mimi extends Cat{
+                constructor(name,age){
+                    super(name);
+                    this.age = age;
+                    this.name='dsds';
+                }
+            }
+            var mimi = new Mimi('vvvv',8);
+            mimi.eat();
+        </script>
 </body>
 </html>
