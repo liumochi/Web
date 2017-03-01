@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../angular-1.4.6.js"></script>
+
+</head>
+<body>
+    <div ng-app='myApp' ng-controller="myCtrl">
+        两秒后显示信息：
+        <h1>{{myHeader}}</h1>
+    </div>
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope,$timeout){
+            $scope.myHeader = 'hello world!';
+            $timeout(function(){
+                $scope.myHeader='wo  ai  ni ';
+            },2000)
+        })
+    </script>
+</body>
+</html>
