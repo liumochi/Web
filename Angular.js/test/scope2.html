@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<script src="../angular-1.4.6.js"></script>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <input type="text" ng-model="name"/>
+        <h1>{{greeting}}</h1>
+        <button ng-click="sayHello()">点击</button>
+
+    </div>
+<script>
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',function($scope){
+        $scope.name = 'ssss';
+        $scope.sayHello = function(){
+            $scope.greeting = 'hello '+$scope.name+'!!';
+        }
+    })
+
+</script>
+
+</body>
+</html>
