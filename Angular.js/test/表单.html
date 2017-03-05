@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../angular-1.4.6.js"></script>
+</head>
+<body>
+
+        <div ng-app="myApp" ng-controller="fromCtrl">
+            <from novalidate>
+            用户名：<br />
+            <input type="text" ng-model="user.firstName"/><br />
+            密码：<br />
+            <input type="text" ng-model="user.lastName"><br />
+                <button ng-click="reset()">RESET</button>
+                <p>form = {{user }}</p>
+                <p>master = {{master}}</p>
+            </from>
+        </div>
+        <script>
+            var app=angular.module('myApp',[]);
+            app.controller('fromCtrl',function($scope){
+                $scope.master={firstName:"John", lastName:"Doe"};
+                $scope.reset = function() {
+                    $scope.user = angular.copy($scope.master);
+                };
+                $scope.reset();
+            })
+        </script>
+</body>
+</html>
