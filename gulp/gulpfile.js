@@ -30,3 +30,4 @@ gulp.task('img',function(){
 gulp.task('sass',function(){
     gulp.src('src/sass/*scss').pipe(sass()).pipe(gulp.dest('dest/css'));
 });
+
