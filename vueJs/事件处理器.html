@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <button v-on:click="say('hi')">say hi</button>
+    <button v-on:click="say('what')">say what</button>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        methods:{
+            say:function(message){
+                alert(message)
+            }
+        }
+    })
+</script>
+</body>
+</html>
