@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="message" placeholder="moren"/>
+        <p>{{message}}</p>
+        <textarea cols="30" rows="10" v-model="message2" placeholder="wenben"></textarea>
+        <p>{{message2}}</p>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            message:'liumochi',
+            message2:''
+        }
+    })
+</script>
+</html>
