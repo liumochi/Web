@@ -7,15 +7,18 @@
 </head>
 <body>
 <div id="app">
-    <button v-on:click="say('hi')">say hi</button>
-    <button @click="say('what')">say what</button>
+    <button @click="add(3,4)">click</button>
+    当前点击次数:<p>{{num}}</p>
 </div>
 <script>
     new Vue({
         el:'#app',
+        data:{
+            num:0
+        },
         methods:{
-            say:function(message){
-                alert(message)
+            add:function(){
+                this.num++
             }
         }
     })
