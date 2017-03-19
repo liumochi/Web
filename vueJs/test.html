@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.min.js"></script>
+    <style>
+        .show{
+            width: 200px;
+            height: 100px;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id='app'>
+    是否需要额外消费: <input type="checkbox" v-model="check"/>
+    <div id="div1" class="show" :class="{hide:!check}">
+        床: <input type="checkbox" v-model="check1" value="100" name="arr[]"/>
+        沙发: <input type="checkbox" v-model="check1" value="200" name="arr[]"/>
+        wifi: <input type="checkbox" v-model="check1" value="300" name="arr[]"/>
+        <!--<input type="text" v-model="check1"/>-->
+    </div>
+    豪华型:
+    订单总额:{{get()}}
+
+</div>
+<script>
+     var vm = new Vue({
+        el:'#app',
+        data:{
+            check:true,
+            check1:[],
+        },
+        methods:{
+                get:function(){
+                    var a=0;
+                    this.check1.forEach(function(val){
+
+                        a=a+parseInt(val);
+
+                    });
+                    return a;
+                }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="text"/>
+    <select name="" v-model="sele">
+        <option value="aa">111</option>
+    </select>
+    <input type="checkbox" v-model="check"/>
+</div>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            text:'test1',
+            sele:''
+        }
+    })
+</script>
+</body>
+</html>

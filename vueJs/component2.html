@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <demo>
+        <h1 slot="title">
+            我是标题
+        </h1>
+        <h1 slot="content">
+            我是内容
+        </h1>
+    </demo>
+</div>
+<script type="text/x-template" id="my-demo">
+<div>
+    标题：
+    <slot name="title">
+        没有标题时
+    </slot>
+    内容：   <slot name="content">没有内容时</slot>
+</div>
+</script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+
+        },
+        components:{
+            template:'#my-demo'
+        }
+    })
+</script>
+</body>
+</html>
