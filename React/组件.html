@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="react.min.js"></script>
+    <script src="react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/jsx">
+        var Hello = React.createClass({
+            render:function(){
+                return <h1>hello {this.props.name}!!</h1>
+            }
+        })
+        ReactDOM.render(
+                <Hello name="liumochi"/>,
+                document.getElementById('example')
+        );
+    </script>
+</body>
+</html>
