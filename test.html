@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function string(str1,str2){
+        if(str1.length>str2.length){
+            small = str2;
+            big = str1
+        }else{
+            small = str1;
+            big = str2;
+        }
+
+        for(var sLength = small.length;sLength>0;sLength--){
+            for(var i = 0;i+sLength<=small.length;i++){
+                var subString =small.substring(i,i+sLength);
+                if(big.indexOf(subString)>=0){
+                    targetString = subString.length;
+                    return targetString;
+                }
+            }
+        }
+    }
+    string("abcde","abgde");
+    console.log(targetString);
+
+
+</script>
+</body>
+</html>
