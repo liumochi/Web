@@ -30,24 +30,24 @@ var ImgFigure = React.createClass({
     }
 });
 var Controller = React.createClass({
-    handelClick:function(){
+    handleClick : function(){
         if(this.props.imgFigureArr.isCenter){
             this.props.inverse();
         }else{
             this.props.center();
         }
     },
-    render:function(){
-        var ctrlClass="ctrl";
+    render: function () {
+        var ctrlClass = "ctrl";
         if(this.props.imgFigureArr.isCenter){
-            ctrlClass += "is-center"
+            ctrlClass += " is-center"
             if(this.props.imgFigureArr.isInverse){
-                ctrlClass +="is-inverse";
+                ctrlClass += " is-inverse";
             }
         }
         return (
-            <span className={ctrlClass} onClick={this.handelClick}></span>
-        );
+            <span className={ctrlClass} onClick={this.handleClick}></span>
+        )
     }
 });
 var Photowall = React.createClass({
@@ -57,7 +57,10 @@ var Photowall = React.createClass({
                 pos:{
                     left:0,
                     height:0
-                }
+                },
+                rotate:0,
+                isCenter:false,
+                isInverse:false
             }]
         };
     },
@@ -94,7 +97,7 @@ var Photowall = React.createClass({
                 xLeftMin:-wHalfImgFigureDOM,
                 xLeftMax:wHalfStageDOM-3*wHalfImgFigureDOM,
                 xRightMin:wHalfStageDOM+wHalfImgFigureDOM,
-                xRightMax:wStageDOM-wHalfStageDOM,
+                xRightMax:wStageDOM-wHalfImgFigureDOM,
                 yMin:-hHalfImgFigureDOM,
                 yMax:hStageDOM-hHalfImgFigureDOM
             };
@@ -110,22 +113,40 @@ var Photowall = React.createClass({
                 };
             }else{
                 imgFigureInfo[i].pos={
-                    top:getRandom(this.const.ymin,this.const.yMax),
+                    top:getRandom(this.const.yMin,this.const.yMax),
                     left:getRandom(this.const.xRightMin,this.const.xRightMax)
                 };
             }
             imgFigureInfo[i].rotate=getRandom(-30,30);
-            imgFigureInfo[i].center=false;
-            imgFigureInfo[i].center=false;
+            imgFigureInfo[i].isCenter=false;
+            imgFigureInfo[i].isInverse=false;
 
         }
         imgFigureInfo[centerIdx].pos=this.const.centerPos;
+        imgFigureInfo[centerIdx].rotate=0;
+        imgFigureInfo[centerIdx].isCenter=true;
 
 
         this.setState({
             imgFigureArr:imgFigureInfo
         });
     },
+    center:function(centerIdx){
+        return function(){
+            this.rearrage(centerIdx);
+        }.bind(this);
+    }
+    ,
+    inverse:function(centerIdx) {
+        return function () {
+            this.state.imgFigureArr[centerIdx].isInverse = !this.state.imgFigureArr[centerIdx].isInverse;
+            this.setState({
+                imgFigureArr:this.state.imgFigureArr
+            });
+        }.bind(this);
+
+    },
+
     render :function(){
         var imgArr=[];
         var ctrlArr=[];
@@ -144,9 +165,12 @@ var Photowall = React.createClass({
 
                 }
             }
-            imgArr.push(<ImgFigure key={index} data={value}
-                                   imgFigureArr={this.state.imgFigureArr[index]}/>);
-            ctrlArr.push(<Controller key={index}/>);
+            imgArr.push(<ImgFigure key={index} data={value}  ref="imgFigure"
+                                   imgFigureArr={this.state.imgFigureArr[index]}
+                                    center={this.center(index)} inverse={this.inverse(index)}/>);
+            ctrlArr.push(<Controller key={index}
+                                     imgFigureArr={this.state.imgFigureArr[index]}
+                                     center={this.center(index)} inverse={this.inverse(index)}/>);
 
         }.bind(this));
         return (

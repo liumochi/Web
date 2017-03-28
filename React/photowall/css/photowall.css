@@ -60,6 +60,16 @@ body,html,#photowall,.stage{
     float: left;
     background: #000;
 }
+.nav{
+    vertical-align: middle;
+}
+.stage nav{
+    width: 480px;
+    bottom: 30px;
+    position: absolute;
+    left:50%;
+    margin-left:-240px;
+}
 .is-center{
     transform: scale(1);
     text-align: center;
