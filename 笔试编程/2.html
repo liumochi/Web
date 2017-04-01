@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var array=[];
+    var readLine= read_line();
+    for(var i=0;i<readLine;i++){
+        var obj={};
+        obj.num=read_line();
+        obj.isQtrue=read_line();
+        obj.isEtrue=read_line();
+        array.push(obj);
+    }
+    function getCode(array){
+        var last=false;
+        var sum=0;
+        for(var i=0;i<array.length;i++){
+            for(var j=0;j<array.length;j++){
+                if(array[j].num==array[i].num&&array[j].isQtrue){
+                    last=true;
+                }
+            }
+            if(array[i].isQtrue){
+                sum += 10;
+            }
+            if(array[i].isQtrue&&array[i].isEtrue){
+                sum += 30;
+            }else if(array[i].isQtrue&&last){
+                sum += 5;
+            }
+              last=false;
+        }
+        return sum;
+    }
+         print(getCode(array));
+</script>
+</body>
+</html>
