@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="jquery-1.12.4.js"></script>
+<form action="#" id="form1">
+    <p>评论：</p>
+    <p>姓名：<input type="text" name="username" id="username"/></p>
+    <p>内容：<textarea name="content" id="content" cols="20" rows="2"></textarea></p>
+    <input type="button" value="提交" id="send"/>
+</form>
+<div class="comment">已有评论：</div>
+<div id="resText"></div>
+<script>
+    $(function(){
+        $('#send').on('click',function(){
+            $.get('get1.php',{
+                username:$('#username').val(),
+                content:$('#content').val()
+            },function(data,textStatus){
+                $('#resText').html(data);
+            })
+        })
+    });
+
+</script>
+</body>
+</html>
