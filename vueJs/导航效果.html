@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>导航</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+        .nav {
+            margin:100px auto;
+            overflow: hidden;
+        }
+        .nav li {
+            float: left;
+            font-size: 18px;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding:15px 30px;
+            color:white;
+            background: #5597b4;
+        }
+        .home .home,.news .news,.projects .projects,.services .services,.contact .contact{
+            background: skyblue;
+        }
+
+    </style>
+</head>
+<body>
+<script src="vue.min.js"></script>
+<div id="demo">
+    <ul class="nav" :class="[current]">
+        <li class="home" @click="change('home')">home</li>
+        <li class="news" @click="change('news')">news</li>
+        <li class="projects" @click="change('projects')">projects</li>
+        <li class="services" @click="change('services')">services</li>
+        <li class="contact" @click="change('contact')">contact</li>
+    </ul>
+    <div>当前页面：{{current}}</div>
+</div>
+<script>
+    new Vue({
+        el:"#demo",
+        data:{
+            current:'home'
+        },
+        methods:{
+            change:function(cur){
+                this.current=cur;
+            }
+        }
+    })
+</script>
+</body>
+</html>

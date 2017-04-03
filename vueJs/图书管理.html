@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图书管理</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        table,td{
+            border:1px solid #CCCCCC;
+            border-collapse: collapse;
+        }
+        table{
+            width: 1090px;
+            margin:24px auto;
+        }
+        tr{
+            line-height: 30px;
+            text-align: center;
+        }
+        fieldset{
+            padding: 25px;
+        }
+        fieldset p{
+            line-height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<script src="vue.min.js"></script>
+<div id="demo">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>书名</th>
+            <th>作者</th>
+            <th>价格</th>
+            <th>操作</th>
+        </tr>
+        <tr v-for="(book,index) in books">
+            <td>{{book.id}}</td>
+            <td>{{book.name}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.price}}</td>
+            <td>
+                <button @click="delBook(index)">删除</button>
+            </td>
+        </tr>
+    </table>
+    <fieldset>
+        <legend>添加新书</legend>
+        <p>书名: <input type="text" v-model="newBook.name"/></p>
+        <p>作者：<input type="text" v-model="newBook.author"/></p>
+        <p>价格：<input type="text" v-model="newBook.price"/></p>
+        <p><button @click="addBook">添加</button></p>
+    </fieldset>
+</div>
+<script>
+    var app=new Vue({
+        el:"#demo",
+        data:{
+            books:[{id:1,name:'红楼梦',author:'曹雪芹',price:'20.00'},
+                {id:2,name:'三国演义',author:'罗贯中',price:'80.00'}
+                ,{id:3,name:'西游记',author:'吴承恩',price:'28.80'},
+                {id:4,name:'水浒传',author:'施耐庵',price:'8.80'}],
+            newBook:{
+                id:0,
+                name:'',
+                author:'',
+                price:''
+            }
+        },
+        methods:{
+            delBook:function(idx){
+                this.books.splice(idx,1);
+            },
+            addBook:function(){
+                var maxId=0;
+                for(var i=0;i<this.books.length;i++){
+                    if(maxId<this.books[i].id){
+                        maxId=this.books[i].id;
+                    }
+                    this.newBook.id=maxId+1;
+                    this.books.push(this.newBook);
+                    this.newBook={};
+
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
