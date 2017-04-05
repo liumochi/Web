@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function remove(arr, item) {
+        var arr2=[];
+        for(var i=0;i<arr.length;i++){
+            if(arr[i]!=item){
+                arr2.push(arr[i]);
+            }
+
+        }
+        return arr2;
+    }
+
+
+
+//
+//    function removeWithoutCopy(arr, item) {
+//
+//        for(var i=0;i<arr.length;i++){
+//            if(arr[i]==item){
+//                arr.splice(i,1);
+//                i--;
+//            }
+//        }
+//        return arr;
+//    }
+//    splice方法会改变数组的长度，因此在每次删除之后，都需要执行i--以确保数组长度正确。
+//
+
+
+
+
+</script>
+</body>
+</html>

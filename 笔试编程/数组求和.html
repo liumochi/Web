@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function sum(arr) {
+        var result = 0;
+        for(var i = 0;i<arr.length;i++) {
+            result += arr[i];
+        }
+        return result;
+    }
+//    函数式编程 map-reduce：
+//
+//    function sum(arr) {
+//        return arr.reduce(function(prev, curr, idx, arr){
+//            return prev + curr;
+//        });
+//    }
+
+//    forEach遍历：
+//
+//    function sum(arr) {
+//        var s = 0;
+//        arr.forEach(function(val, idx, arr) {
+//            s += val;
+//        }, 0);
+//
+//        return s;
+//    };
+//    eval：
+//
+//    function sum(arr) {
+//        return eval(arr.join("+"));
+//    };
+
+</script>
+</body>
+</html>
