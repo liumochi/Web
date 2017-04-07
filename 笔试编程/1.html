@@ -6,41 +6,7 @@
 </head>
 <body>
 <script>
-    var val=read_line();
-    var arr1=[];
-    var arr2=[];
-    for(var i=0;i<val;i++){
-        var data=read_line();
-        arr1[i]=data+"";
-        var arr3=arr1[i].split(" ");
-        var sum=0;
-        arr2[i]={
-            a:0, b:0, c:0, d:0, e:0, val:i
-        };
-        for(var j=0;j<5;j++){
-            sum=sum+parseInt(arr3[j]);
-            if(arr3[j]=="1"){
-                arr2[a].a++;
-            }else if(arr3[j]=="2"){
-                arr2[a].b++;
-            }else if(arr3[j]=="3"){
-                arr2[a].c++;
-            }else if(arr3[j]=="4"){
-                arr2[a].d++;
-            }else{
-                arr2[a].e++;
-            }
-        }
-        arr2[i].avg=sum/5;
-    }
-    arr2.fn(e);
-    function fn(proper){
-        return function (m,n) {
-            var num1=m[proper];
-            var num2=n[proper];
-            return num1-num2;
-        }
-    }
+
 </script>
 </body>
 </html>
