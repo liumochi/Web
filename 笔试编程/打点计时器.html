@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function count(start, end) {
+        console.log(start++);
+        var timer=setInterval(function(){
+            if(start<=end){
+                console.log(start++);
+            }else{
+                clearInterval(timer);
+            }
+        },100)
+        return {
+            cancel:function(){
+                clearInterval(timer);
+            }
+        }
+    }
+</script>
+</body>
+</html>
