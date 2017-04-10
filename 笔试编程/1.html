@@ -6,7 +6,17 @@
 </head>
 <body>
 <script>
-
+//    var a =[];a[0]=1, a[1]=2, a[2]=3, a[5]=4;
+//    console.log(a.length);
+function A() {
+    this.do=function() {return 'foo';};
+}
+A.prototype=function() {
+    this.do=function() {return 'bar'};
+};
+var x=new A().do();
+console.log(x);
 </script>
+
 </body>
 </html>
