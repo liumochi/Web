@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //递归算法，1，如果1是二的父节点，2、如果2是1的父节点，3、1和2是同一级，返回1节点的父节点即可；
+    function commonParentNode(oNode1,oNode2){
+        if(oNode1.contains(oNode2)){
+            return oNode1;
+        }else if(oNode2.contains(oNode1)){
+            return oNode2;
+        }else{
+            return oNode1.parentNode;
+        }
+    }
+</script>
+</body>
+</html>

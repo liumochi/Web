@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    Array.prototype.uniq=function(){
+        var resArr=[];
+        var flag=true;
+        for(var i=0;i<this.length;i++){
+            if(resArr.indexOf(this[i])==-1){
+                if(this[i]!=this[i]){
+                    if(flag){
+                        resArr.push(this[i]);
+                        flag=false;
+                    }
+                }else{
+                    resArr.push(this[i]);
+                }
+            }
+        }
+        return resArr;
+    }
+</script>
+</body>
+</html>
