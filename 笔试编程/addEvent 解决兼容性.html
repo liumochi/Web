@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        #div1{
+            width: 400px;
+            height: 400px;
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2"></div>
+    </div>
+<script>
+    var oDiv1=document.getElementById('div1');
+    var oDiv2=document.getElementById('div2');
+    addEvent(oDiv1,'click',function(){
+        alert('div1');
+    });
+    function addEvent(elem,type,handler){
+        if(elem.addEventListener){
+            elem.addEventListener(type,handler);
+        }else if(elem.attachEvent){
+            elem.attachEvent('on'+type,handler);
+        }else{
+            elem['on'+type]=handler;
+        }
+    }
+</script>
+</body>
+</html>
