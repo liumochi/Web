@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function asyncOneByOne(arr) {
+        if(arr.length >2){
+            var first = arr[0];
+            arr.splice(0,1);
+            first(function () {
+                asyncOneByOne(arr);
+            })
+        }else if(arr.length === 2){
+            alert('2');
+            arr[0](arr[1]);
+        }else{
+            alert('<2');
+            arr[0]()
+        }
+    }
+    function one(callback) {
+
+        setTimeout(function(){
+            alert('one');
+            console.log('first');
+            callback();
+        }, 200); }
+    function two(callback) {
+
+        setTimeout(function () {
+            alert('2');
+            console.log('second');
+            callback();
+        }, 0);
+    }
+    //asyncOneByOne([one, two]);
+    asyncOneByOne([one, two, two, one])
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>answer</title>
+</head>
+<style>
+    .container .content li:nth-child(2n){
+        background: #00ffff;
+    }
+</style>
+<body>
+<div class="container">
+    <ol class="content">
+        <li>因为js事件处理器在线程空闲时间不会运行，var声明的i，在全局范围内有效每一次循环，i的值都会改变，function在运行时会通过
+            闭包读取变量i，导致最后运行的时候输出的都是i最后的值。可以用闭包保存i的值解决
+            <pre>    (function(){
+        var fnArray = [];
+        for (var i = 0; i < 3; i++) {
+
+            fnArray[i] = function() {
+                console.log("the value: " + i);
+            };
+
+        }
+        for (var j = 0; j < 3; j++) {
+            fnArray[j]();
+        }
+
+    })(i);</pre>
+            也可是使用es6的let，将var改为let，for循环适用于let，let仅在块级作用域内有效，i只在本轮循环内有效，每一次循环的i都是一个新变量；
+        </li>
+        <li>
+            <pre>function compareStrCharByChar(){
+                   let compareStr = (strA, strB) => {
+
+            return strA >	strB ? 1 : strA < strB ? -1 : 0
+                }
+                compareStr('abc',	'abb')
+                compareStr('abc',	'abcd')
+                compareStr('abc',	'abc')
+
+                     }
+            </pre>
+        </li>
+        <li><pre>
+            function test(str) {
+                var obj = {
+                    brace:0,
+                    par:0,
+                    bracket:0
+                };
+                for(var i=0;i<<pre>str.length;</pre>i++){
+                    switch (str[i]){
+                        case '(':
+                            obj.brace++;
+                            break;
+                        case '[':
+                            obj.par++;
+                            break;
+                        case '{':
+                            obj.bracket++;
+                            break;
+                        case ')':
+                            obj.brace++;
+                            break;
+                        case ']':
+                            obj.par++;
+                            break;
+                        case '}':
+                            obj.bracket++;
+                            break;
+                    }
+                }
+        var isDouble = true;
+        for(var x in obj){
+            if(obj[x] === 1){
+                isDouble = false;
+                break;
+            }
+            console.log(obj[x]);
+        }
+        return isDouble;
+    }
+    var aa = '{([123]}';
+
+        </pre></li>
+        <li><pre>
+            function asyncOneByOne(arr) {
+                    if(arr.length >2){
+                        var first = arr[0];
+                        arr.splice(0,1);
+                        first(function () {
+                            asyncOneByOne(arr);
+                        })
+                    }else if(arr.length === 2){
+                            alert('2');
+                            arr[0](arr[1]);
+                     }else{
+                            alert('<2');
+                            arr[0]()
+                        }
+                    }
+            function one(callback) {
+
+                setTimeout(function(){
+                    alert('one');
+                    console.log('first');
+                    callback();
+                }, 200); }
+            function two(callback) {
+
+                setTimeout(function () {
+                    alert('2');
+                    console.log('second');
+                    callback();
+                }, 0);
+            }
+            //asyncOneByOne([one, two]);
+            asyncOneByOne([one, two, two, one])
+        </pre></li>
+        <li>编译环境需要nodejs,
+
+            主文件是index.js为入口 通过index.js加载exe.js,
+
+            exe.js分别调用了bundle.js ember.js log.js monkerpatch.js,
+
+            同时也用了async来解决回调深渊问题,
+
+            程序先检查环境 ,然后通过makeExecutable来判断操作系统类型 win使用vcbuild进行编译 ,如果是其他系统使用make直接对源码编译
+
+            重点函数是_getNodeCompiler调用node和iojs
+            然后区分系统 如果是win make的方式判断python环境和vc环境是不是就绪 容纳后通过process操作输入输出用on监听close来调用编译
+
+            如果不是win 是linux或mac 直接调用configure进行编译通过嗲用spawn来使用python处理
+
+
+            而_monkeyPatch的各种函数都是用于后续修改的patch代码融合编译用的</li>
+    </ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    (function(){
+        var fnArray = [];
+        for (var i = 0; i < 3; i++) {
+
+            fnArray[i] = function() {
+                console.log("the value: " + i);
+            };
+
+        }
+        for (var j = 0; j < 3; j++) {
+            fnArray[j]();
+        }
+
+    })(i);
+
+
+
+</script>
+</body>
+</html>
