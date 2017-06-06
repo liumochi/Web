@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var arr=[10,5,11,7,8,9];
+    var minPrice = arr[0];
+    var maxProfit = 0;
+    //console.log(minPrice);
+    for (var i = 0; i < arr.length; i++) {
+        var currentPrice = arr[i];
+        minPrice = Math.min(minPrice, currentPrice);
+
+        var potentialProfit = currentPrice - minPrice;
+        //console.log(potentialProfit);
+
+        maxProfit = Math.max(maxProfit, potentialProfit);
+    }
+    console.log(maxProfit);
+</script>
+</body>
+</html>
